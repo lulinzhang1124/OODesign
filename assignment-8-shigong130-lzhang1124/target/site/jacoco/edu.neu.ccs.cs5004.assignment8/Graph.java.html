@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Graph.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment8</a> &gt; <span class="el_source">Graph.java</span></div><h1>Graph.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment8;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+/**
+ * Represents a graph class.
+ */
+<span class="fc" id="L14">public class Graph implements TwitterGraph {</span>
+
+
+<span class="fc" id="L17">  private Map&lt;Integer, User&gt; map = new HashMap&lt;&gt;();</span>
+
+
+  /**
+   * Getter.
+   *
+   * @return - the value of property 'map'.
+   */
+  public Map&lt;Integer, User&gt; getMap() {
+<span class="fc" id="L26">    return map;</span>
+  }
+
+
+  /**
+   * This method is used to build the graph, representing the relationship between users.
+   *
+   * @param file1 node file, which contains users each line
+   * @param file2 edge file, which contains edge each line
+   */
+  @Override
+  public void buildGraph(String file1, String file2) {
+<span class="fc" id="L38">    List&lt;String&gt; lines = FileReader.readFileLines(file1);</span>
+<span class="fc" id="L39">    lines.remove(Number.ZERO.getValue());</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">    for (String line : lines) {</span>
+<span class="fc" id="L41">      User user = TwitterUser.buildFromLine(line);</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">      if (user == null) {</span>
+<span class="nc" id="L43">        continue;</span>
+      }
+      //add the user which read from the file.
+
+<span class="fc" id="L47">      map.put(user.getId(), user);</span>
+<span class="fc" id="L48">    }</span>
+
+    //add the edge information into the graph, which represents the relationship between users.
+<span class="fc" id="L51">    lines = FileReader.readFileLines(file2);</span>
+<span class="fc" id="L52">    lines.remove(Number.ZERO.getValue());</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">    for (String line : lines) {</span>
+<span class="fc" id="L54">      Edge edge = Edge.buildFromLine(line);</span>
+<span class="fc" id="L55">      addEdge(edge);</span>
+<span class="fc" id="L56">    }</span>
+<span class="fc" id="L57">  }</span>
+
+  /**
+   * This method is used to add the edge information for a user.
+   *
+   * @param edge for example edge 1,2 means user 1 follows user 2
+   */
+  private void addEdge(Edge edge) {
+<span class="fc" id="L65">    User user1 = map.get(edge.getTwitterId1());</span>
+<span class="fc" id="L66">    User user2 = map.get(edge.getTwitterId2());</span>
+<span class="fc bfc" id="L67" title="All 4 branches covered.">    if (user1 == null || user2 == null) {</span>
+<span class="fc" id="L68">      return;</span>
+    }
+<span class="fc" id="L70">    user1.getFollows().add(user2.getId());</span>
+<span class="fc" id="L71">    user2.getFollowers().add(user1.getId());</span>
+
+<span class="fc" id="L73">  }</span>
+
+  /**
+   * Get the total number of users.
+   *
+   * @return total number of users
+   */
+  @Override
+  public Integer totalNumberOfUsers() {
+<span class="fc" id="L82">    return allUsers().size();</span>
+  }
+
+  /**
+   * Gets all user ids.
+   *
+   * @return - a list of all user ids.
+   */
+  @Override
+  public List&lt;Integer&gt; allUsers() {
+<span class="fc" id="L92">    return new ArrayList&lt;&gt;(map.keySet());</span>
+  }
+
+
+  /**
+   * This method is used to define three ways to process user.
+   * Where s means process the user from beginning, e from the end, and r is in random order.
+   *
+   * @param processingFlag         a character from s, e, r
+   * @param numberOfUsersToProcess number of users you need to process to make recommendation
+   * @return the users list
+   */
+  @Override
+  public List&lt;Integer&gt; processUsers(String processingFlag, Integer numberOfUsersToProcess) {
+<span class="fc" id="L106">    List&lt;Integer&gt; users = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L107">    UserIterator userIterator = new UserIterator(allUsers(), processingFlag);</span>
+<span class="pc bpc" id="L108" title="1 of 4 branches missed.">    for (int i = 0; i &lt; numberOfUsersToProcess &amp;&amp; i &lt; map.keySet().size(); i++) {</span>
+<span class="fc" id="L109">      users.add(userIterator.next());</span>
+    }
+<span class="fc" id="L111">    return users;</span>
+  }
+
+  /**
+   * This method is to get the user according to his ID number.
+   *
+   * @param twitterId id number of the user
+   * @return user node
+   */
+  public User getNode(Integer twitterId) {
+<span class="fc" id="L121">    return map.get(twitterId);</span>
+  }
+
+  /**
+   * This method is used to get the followers of a user according to his ID.
+   *
+   * @param twitterId id number of the user
+   * @return this user's followers
+   */
+  @Override
+  public Set&lt;Integer&gt; getFollowers(Integer twitterId) {
+<span class="nc" id="L132">    return map.get(twitterId).getFollowers();</span>
+  }
+
+  /**
+   * This method is used to get the follows of a user according to his ID.
+   *
+   * @param twitterId id number of the user
+   * @return this user's follows
+   */
+  @Override
+  public Set&lt;Integer&gt; getFollows(Integer twitterId) {
+<span class="fc" id="L143">    return map.get(twitterId).getFollows();</span>
+  }
+
+  /**
+   * This method is used to get the influencers list.
+   * The influencers's criterion standard is based on the number, criterionOfInfluencer
+   *
+   * @param criterionOfInfluencer used to define whether a node is an influencer.
+   * @return list of users who are influencers
+   */
+
+  @Override
+  public List&lt;Integer&gt; getInfluencers(int criterionOfInfluencer) {
+<span class="fc" id="L156">    List&lt;Integer&gt; list = new LinkedList&lt;&gt;();</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">    for (Integer id : allUsers()) {</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">      if (map.get(id).getFollowersNum() &gt;= criterionOfInfluencer) {</span>
+<span class="fc" id="L159">        list.add(id);</span>
+      }
+<span class="fc" id="L161">    }</span>
+<span class="fc" id="L162">    return list;</span>
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L167" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L168">      return true;</span>
+    }
+<span class="fc bfc" id="L170" title="All 4 branches covered.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L171">      return false;</span>
+    }
+<span class="fc" id="L173">    Graph graph = (Graph) obj;</span>
+<span class="fc" id="L174">    return Objects.equals(getMap(), graph.getMap());</span>
+  }
+
+  @Override
+  public int hashCode() {
+
+<span class="fc" id="L180">    return Objects.hash(getMap());</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L185">    return &quot;Graph{&quot; + &quot;map=&quot; + map + '}';</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

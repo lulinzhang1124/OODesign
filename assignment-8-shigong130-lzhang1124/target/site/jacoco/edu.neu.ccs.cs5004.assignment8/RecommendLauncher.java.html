@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RecommendLauncher.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment8</a> &gt; <span class="el_source">RecommendLauncher.java</span></div><h1>RecommendLauncher.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment8;
+
+/**
+ * Represents a recommendation system that user can use it to run.
+ */
+<span class="nc" id="L6">public class RecommendLauncher {</span>
+
+  //node file
+  private static String file1;
+  //edge file
+  private static String file2;
+  //output file
+  private static String file3;
+
+  //three additional parameters
+<span class="fc" id="L16">  private static String processingFlag = &quot;s&quot;;</span>
+  //an integer in the set [1, totalNumberOfUsers], The default value is 50.
+<span class="fc" id="L18">  private static Integer numberOfUsersToProcess = Number.FIFTY.getValue();</span>
+  //an integer in the set [1, 100], The default value is 15.
+<span class="fc" id="L20">  private static Integer numberOfRecommendations = Number.FIFTEEN.getValue();</span>
+
+<span class="fc" id="L22">  private static TwitterGraph graph = new Graph();</span>
+
+  /**
+   * Main function.
+   *
+   * @param args arguments read from the commandline input
+   */
+  public static void main(String[] args) {
+<span class="fc" id="L30">    graph = new Graph();</span>
+
+<span class="fc bfc" id="L32" title="All 2 branches covered.">    if (!parseArgsAndInit(args)) {</span>
+<span class="fc" id="L33">      return;</span>
+    }
+
+<span class="fc" id="L36">    RecommendationSystem recommendationSystem = new RecommendationSystem();</span>
+<span class="fc" id="L37">    recommendationSystem.recommendation(graph, processingFlag, numberOfUsersToProcess,</span>
+        numberOfRecommendations);
+<span class="fc" id="L39">    recommendationSystem.writeResult(file3);</span>
+<span class="fc" id="L40">  }</span>
+
+  /**
+   * Validate the commandline input.
+   *
+   * &lt;p&gt;Format: file1.csv file2.csv file3.csv [processingFlag]
+   * [numberOfUsersToProcess] [numberOfRecommendations]
+   *
+   * &lt;p&gt;For processingFlag, s means process the user from beginning,
+   * e from the end, and r is in random order.
+   *
+   * &lt;p&gt;For numberOfUsersToProcess, which is an integer in the set [1, TOTAL NUMBER OF USERS]
+   * For numberOfRecommendations, which is an integer in the set [1, 100].
+   *
+   * @param args arguments read from the commandline input
+   * @return whether the arguments is valid
+   */
+  public static boolean parseArgsAndInit(String[] args) {
+<span class="fc bfc" id="L58" title="All 2 branches covered.">    if (args.length &lt; Number.THREE.getValue()) {</span>
+<span class="fc" id="L59">      System.out.println(&quot;Invalid arguments! \n&quot;</span>
+          + &quot;Usage: file1.csv file2.csv file3.csv [processingFlag]&quot;
+          + &quot; [numberOfUsersToProcess] [numberOfRecommendations]&quot;);
+<span class="fc" id="L62">      return false;</span>
+    }
+
+<span class="fc" id="L65">    file1 = args[0];</span>
+<span class="fc" id="L66">    file2 = args[1];</span>
+<span class="fc" id="L67">    file3 = args[2];</span>
+
+<span class="fc" id="L69">    graph.buildGraph(file1, file2);</span>
+
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">    if (args.length &gt;= Number.FOUR.getValue()) {</span>
+<span class="fc" id="L72">      processingFlag = args[3];</span>
+<span class="fc bfc" id="L73" title="All 4 branches covered.">      if (!(processingFlag.equals(&quot;s&quot;) || processingFlag.equals(&quot;e&quot;)</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">          || processingFlag.equals(&quot;r&quot;))) {</span>
+<span class="fc" id="L75">        System.out.println(&quot;processingFlag format wrong.&quot;);</span>
+<span class="fc" id="L76">        return false;</span>
+      }
+    }
+
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">    if (args.length &gt;= Number.FIVE.getValue()) {</span>
+      try {
+<span class="fc" id="L82">        numberOfUsersToProcess = Integer.valueOf(args[4]);</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (!(numberOfUsersToProcess &gt;= 1</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">            &amp;&amp; numberOfUsersToProcess &lt;= graph.totalNumberOfUsers())) {</span>
+<span class="fc" id="L85">          System.out.println(&quot;numberOfUsersToProcess is not in bound!.&quot;);</span>
+<span class="fc" id="L86">          return false;</span>
+        }
+<span class="fc" id="L88">      } catch (Exception e) {</span>
+<span class="fc" id="L89">        System.out.println(&quot;numberOfUsersToProcess format wrong.&quot;);</span>
+<span class="fc" id="L90">        return false;</span>
+<span class="fc" id="L91">      }</span>
+    }
+
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">    if (args.length == Number.SIX.getValue()) {</span>
+      try {
+<span class="fc" id="L96">        numberOfRecommendations = Integer.valueOf(args[5]);</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if (!(numberOfRecommendations &gt;= Number.ONE.getValue()</span>
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">            &amp;&amp; numberOfRecommendations &lt;= Number.ONE_HUNDRED.getValue())) {</span>
+<span class="nc" id="L99">          System.out.println(&quot;numberOfRecommendations is not in bound!.&quot;);</span>
+<span class="nc" id="L100">          return false;</span>
+        }
+<span class="fc" id="L102">      } catch (Exception e) {</span>
+<span class="fc" id="L103">        System.out.println(&quot;numberOfRecommendations format wrong.&quot;);</span>
+<span class="fc" id="L104">        return false;</span>
+<span class="fc" id="L105">      }</span>
+    }
+
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">    if (args.length &gt; Number.SIX.getValue()) {</span>
+<span class="nc" id="L109">      System.out.println(&quot;The number of arguments should be 6, you exceed the limit!&quot;);</span>
+<span class="nc" id="L110">      return false;</span>
+    }
+<span class="fc" id="L112">    return true;</span>
+  }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

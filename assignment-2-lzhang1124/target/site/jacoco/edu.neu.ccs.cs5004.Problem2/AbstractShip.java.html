@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AbstractShip.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.Problem2</a> &gt; <span class="el_source">AbstractShip.java</span></div><h1>AbstractShip.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.Problem2;
+
+import java.util.Objects;
+
+public abstract class AbstractShip implements Ship {
+
+    protected Integer size;
+    protected Integer numberHitCells;
+
+<span class="fc" id="L10">    public AbstractShip(Integer size, Integer numberHitCells) {</span>
+<span class="fc" id="L11">        this.size = size;</span>
+<span class="fc" id="L12">        this.numberHitCells = numberHitCells;</span>
+<span class="fc" id="L13">    }</span>
+
+    public Integer getSize() {
+<span class="fc" id="L16">        return size;</span>
+    }
+
+    public Integer getNumberHitCells() {
+<span class="fc" id="L20">        return numberHitCells;</span>
+    }
+
+    @Override
+    public Boolean isSunk() {
+<span class="fc" id="L25">        return this.numberHitCells.equals(this.size);</span>
+    }
+
+    @Override
+    public Ship hitShip() {
+<span class="fc" id="L30">        this.numberHitCells++;</span>
+<span class="fc" id="L31">        return this;</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L37" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L38">        AbstractShip that = (AbstractShip) o;</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        return Objects.equals(size, that.size) &amp;&amp;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">                Objects.equals(numberHitCells, that.numberHitCells);</span>
+    }
+
+    @Override
+    public int hashCode() {
+
+<span class="fc" id="L46">        return Objects.hash(size, numberHitCells);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

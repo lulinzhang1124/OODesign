@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>Assignment for class CS5004 - Checkstyle report</title>
+    <link>${project.url}</link>
+    <description>Assignment for class CS5004 - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2018</copyright>
+    <item>
+      <title>File: 26,
+             Errors: 0,
+             Warnings: 499,
+             Infos: 0
+      </title>
+            <link>${project.url}/checkstyle.html</link>
+      <description>
+        <p>Click <a href="${project.url}/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.OpenSeaCell.java">edu/neu/ccs/cs5004/Problem2/OpenSeaCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem1.LegalSecretary.java">edu/neu/ccs/cs5004/Problem1/LegalSecretary.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  23
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.Ship.java">edu/neu/ccs/cs5004/Problem2/Ship.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.AbstractShip.java">edu/neu/ccs/cs5004/Problem2/AbstractShip.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  34
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.Destoryer.java">edu/neu/ccs/cs5004/Problem2/Destoryer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  10
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem1.Lawyer.java">edu/neu/ccs/cs5004/Problem1/Lawyer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  20
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.EnemyShipCell.java">edu/neu/ccs/cs5004/Problem2/EnemyShipCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  32
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem1.HRManager.java">edu/neu/ccs/cs5004/Problem1/HRManager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  27
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.NotSunk.java">edu/neu/ccs/cs5004/Problem2/NotSunk.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  15
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.Cruiser.java">edu/neu/ccs/cs5004/Problem2/Cruiser.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem1.AbstractEmployee.java">edu/neu/ccs/cs5004/Problem1/AbstractEmployee.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  74
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.Battleship.java">edu/neu/ccs/cs5004/Problem2/Battleship.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  10
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem1.GeneralSecretary.java">edu/neu/ccs/cs5004/Problem1/GeneralSecretary.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  20
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem1.Name.java">edu/neu/ccs/cs5004/Problem1/Name.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  30
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.AbstractShipCell.java">edu/neu/ccs/cs5004/Problem2/AbstractShipCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  45
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.markSunk.java">edu/neu/ccs/cs5004/Problem2/markSunk.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.GapCell.java">edu/neu/ccs/cs5004/Problem2/GapCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.AbstractCell.java">edu/neu/ccs/cs5004/Problem2/AbstractCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  31
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.AbstractWaterCell.java">edu/neu/ccs/cs5004/Problem2/AbstractWaterCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  31
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.Cell.java">edu/neu/ccs/cs5004/Problem2/Cell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.SpecificShipCell.java">edu/neu/ccs/cs5004/Problem2/SpecificShipCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem1.AbstractSecretary.java">edu/neu/ccs/cs5004/Problem1/AbstractSecretary.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.App.java">edu/neu/ccs/cs5004/App.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem1.Employee.java">edu/neu/ccs/cs5004/Problem1/Employee.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.Sunk.java">edu/neu/ccs/cs5004/Problem2/Sunk.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  15
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.Problem2.Submarine.java">edu/neu/ccs/cs5004/Problem2/Submarine.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  10
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

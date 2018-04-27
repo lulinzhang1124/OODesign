@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TwitterUser.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment8</a> &gt; <span class="el_source">TwitterUser.java</span></div><h1>TwitterUser.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment8;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+/**
+ * Represents a user class.
+ */
+public class TwitterUser implements User {
+  private Integer twitterId;
+  private Character gender;
+  private Integer age;
+  private String city;
+  private Date dateCreated;
+<span class="fc" id="L18">  private Set&lt;Integer&gt; followers = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L19">  private Set&lt;Integer&gt; follows = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L20">  private Integer recommendedNumber = 0;</span>
+
+
+  /**
+   * Constructor of a new user.
+   *
+   * @param twitterId   - every user's unique ID.
+   * @param dateCreated - the date of profile creation in the format MM/DD/YY.
+   * @param gender      - represent as one of the characters M, F or O, denoting male, female
+   *                    and other.
+   * @param age         - represent as an integer in the range [0, 100].
+   * @param city        - represent the user's city.
+   */
+<span class="fc" id="L33">  TwitterUser(Integer twitterId, Date dateCreated, Character gender, Integer age, String city) {</span>
+<span class="fc" id="L34">    this.twitterId = twitterId;</span>
+<span class="fc" id="L35">    this.dateCreated = dateCreated;</span>
+<span class="fc" id="L36">    this.gender = gender;</span>
+<span class="fc" id="L37">    this.age = age;</span>
+<span class="fc" id="L38">    this.city = city;</span>
+
+<span class="fc" id="L40">  }</span>
+
+  /**
+   * This method is used to read and parse the data from file.
+   *
+   * @param line each line in the file
+   * @return a user that read from this line
+   */
+  public static User buildFromLine(String line) {
+<span class="fc" id="L49">    String[] items = line.split(&quot;,&quot;);</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">    if (items.length != 5) {</span>
+<span class="fc" id="L51">      return null;</span>
+    }
+<span class="fc" id="L53">    Integer twitterId = Integer.valueOf(items[0]);</span>
+<span class="fc" id="L54">    String dateCreated = items[1];</span>
+<span class="fc" id="L55">    Character gender = items[2].charAt(0);</span>
+<span class="fc" id="L56">    Integer age = Integer.valueOf(items[3]);</span>
+<span class="fc" id="L57">    String city = items[4];</span>
+
+<span class="fc" id="L59">    String[] itemsDate = dateCreated.split(&quot;/&quot;);</span>
+<span class="fc" id="L60">    int month = Integer.parseInt(itemsDate[0]);</span>
+<span class="fc" id="L61">    int day = Integer.parseInt(itemsDate[1]);</span>
+<span class="fc" id="L62">    int year = Integer.parseInt(itemsDate[2]);</span>
+
+<span class="fc" id="L64">    Calendar calendar = Calendar.getInstance();</span>
+<span class="fc" id="L65">    calendar.clear();</span>
+<span class="fc" id="L66">    calendar.set(year + Number.TWO_THOUSAND.getValue(),</span>
+<span class="fc" id="L67">        month - Number.ONE.getValue(), day);</span>
+<span class="fc" id="L68">    User user = new TwitterUser(twitterId, calendar.getTime(), gender, age, city);</span>
+<span class="fc" id="L69">    return user;</span>
+  }
+
+  /**
+   * Getter.
+   *
+   * @return - value for property 'follows'.
+   */
+  public Set&lt;Integer&gt; getFollows() {
+<span class="fc" id="L78">    return follows;</span>
+  }
+
+  /**
+   * This method is used to get each user's ID.
+   *
+   * @return the id number
+   */
+  @Override
+  public Integer getId() {
+<span class="fc" id="L88">    return twitterId;</span>
+  }
+
+  /**
+   * This method is used to get the friend list of a user.
+   *
+   * @return list that contains users who are followers
+   */
+  @Override
+  public Set&lt;Integer&gt; getFollowers() {
+<span class="fc" id="L98">    return followers;</span>
+  }
+
+  /**
+   * This method is used to get the recommendation number of a user.
+   *
+   * @return recommendation number of this user
+   */
+  @Override
+  public Integer getRecommendedNumber() {
+<span class="fc" id="L108">    return recommendedNumber;</span>
+  }
+
+  /**
+   * This method is used to get the friend list of a user.
+   *
+   * @return number of followers
+   */
+  @Override
+  public Integer getFollowersNum() {
+<span class="fc" id="L118">    return followers.size();</span>
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L123" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L124">      return true;</span>
+    }
+<span class="fc bfc" id="L126" title="All 4 branches covered.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L127">      return false;</span>
+    }
+<span class="fc" id="L129">    TwitterUser twitterUser = (TwitterUser) obj;</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">    return Objects.equals(twitterId, twitterUser.twitterId)</span>
+        &amp;&amp;
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        Objects.equals(gender, twitterUser.gender)</span>
+        &amp;&amp;
+<span class="pc bpc" id="L134" title="1 of 2 branches missed.">        Objects.equals(age, twitterUser.age)</span>
+        &amp;&amp;
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">        Objects.equals(city, twitterUser.city)</span>
+        &amp;&amp;
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">        Objects.equals(dateCreated, twitterUser.dateCreated)</span>
+        &amp;&amp;
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">        Objects.equals(getFollowers(), twitterUser.getFollowers())</span>
+        &amp;&amp;
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">        Objects.equals(getFollows(), twitterUser.getFollows())</span>
+        &amp;&amp;
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">        Objects.equals(getRecommendedNumber(), twitterUser.getRecommendedNumber());</span>
+  }
+
+  @Override
+  public int hashCode() {
+
+<span class="fc" id="L150">    return Objects.hash(twitterId, gender, age, city, dateCreated, getFollowers(),</span>
+<span class="fc" id="L151">        getFollows(), getRecommendedNumber());</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L156">    return &quot;TwitterUser{&quot;</span>
+        +
+        &quot;twitterId=&quot;
+        + twitterId
+        + &quot;, gender=&quot;
+        + gender
+        + &quot;, age=&quot;
+        + age
+        + &quot;, city='&quot;
+        + city + '\''
+        + &quot;, dateCreated=&quot;
+        + dateCreated
+        + &quot;, followers=&quot;
+        + followers + &quot;, follows=&quot; + follows + &quot;, recommendedNumber=&quot; + recommendedNumber + '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Row.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment4.problem3</a> &gt; <span class="el_source">Row.java</span></div><h1>Row.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment4.problem3;
+
+/**
+ * Represents a row in the map.
+ */
+<span class="pc" id="L6">public enum Row {</span>
+
+<span class="fc" id="L8">  ROW1, ROW2, ROW3, ROW4, ROW5, ROW6, ROW7, ROW8, ROW9, ROW10;</span>
+
+  /**
+   * Covert an integer to the corresponding enum.
+   *
+   * @param index the integer to be covert
+   * @return the corresponding enum
+   * @throws IndexOutOfBoundsException when there is no such enum represent this integer.
+   */
+  static Row valueOf(int index) throws IndexOutOfBoundsException {
+<span class="fc bfc" id="L18" title="All 11 branches covered.">    switch (index) {</span>
+      case 0:
+<span class="fc" id="L20">        return ROW1;</span>
+      case 1:
+<span class="fc" id="L22">        return ROW2;</span>
+      case 2:
+<span class="fc" id="L24">        return ROW3;</span>
+      case 3:
+<span class="fc" id="L26">        return ROW4;</span>
+      case 4:
+<span class="fc" id="L28">        return ROW5;</span>
+      case 5:
+<span class="fc" id="L30">        return ROW6;</span>
+      case 6:
+<span class="fc" id="L32">        return ROW7;</span>
+      case 7:
+<span class="fc" id="L34">        return ROW8;</span>
+      case 8:
+<span class="fc" id="L36">        return ROW9;</span>
+      case 9:
+<span class="fc" id="L38">        return ROW10;</span>
+      default:
+<span class="fc" id="L40">        throw new IndexOutOfBoundsException(&quot;Row index out of boundary.&quot;);</span>
+    }
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L46">    return &quot;Row{}&quot;;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

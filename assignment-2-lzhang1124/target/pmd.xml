@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.3.5" timestamp="2018-01-23T02:20:36.852">
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem1\AbstractEmployee.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="71" endline="71" begincolumn="34" endcolumn="34" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" class="AbstractEmployee" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="72" endline="72" begincolumn="9" endcolumn="35" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem1" class="AbstractEmployee" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="73" endline="73" begincolumn="9" endcolumn="66" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem1" class="AbstractEmployee" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem1\AbstractSecretary.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="15" endline="15" begincolumn="67" endcolumn="68" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" class="AbstractSecretary" method="promote" variable="gs" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like gs
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem1\Employee.java">
+<violation beginline="4" endline="4" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem1\GeneralSecretary.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="21" endline="21" begincolumn="58" endcolumn="59" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" class="GeneralSecretary" method="promote" variable="gs" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like gs
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem1\HRManager.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem1\Lawyer.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem1\LegalSecretary.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="13" endline="13" begincolumn="58" endcolumn="59" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" class="LegalSecretary" method="promote" variable="gs" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like gs
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem1\Name.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="24" endline="24" begincolumn="34" endcolumn="34" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem1" class="Name" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="25" endline="25" begincolumn="9" endcolumn="35" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem1" class="Name" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="26" endline="26" begincolumn="9" endcolumn="66" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem1" class="Name" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\AbstractCell.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="30" endline="30" begincolumn="34" endcolumn="34" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" class="AbstractCell" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="31" endline="31" begincolumn="9" endcolumn="35" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="32" endline="32" begincolumn="9" endcolumn="66" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\AbstractShip.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="35" endline="35" begincolumn="34" endcolumn="34" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" class="AbstractShip" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="36" endline="36" begincolumn="9" endcolumn="35" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractShip" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="37" endline="37" begincolumn="9" endcolumn="66" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractShip" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\AbstractShipCell.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="27" endline="27" begincolumn="33" endcolumn="46" rule="IfElseStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractShipCell" method="attackResult" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="28" endline="28" begincolumn="14" endcolumn="26" rule="IfElseStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractShipCell" method="attackResult" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="44" endline="44" begincolumn="34" endcolumn="34" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" class="AbstractShipCell" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="45" endline="45" begincolumn="9" endcolumn="35" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractShipCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="46" endline="46" begincolumn="9" endcolumn="66" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractShipCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="47" endline="47" begincolumn="9" endcolumn="43" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractShipCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\AbstractWaterCell.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="29" endline="29" begincolumn="34" endcolumn="34" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" class="AbstractWaterCell" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="30" endline="30" begincolumn="9" endcolumn="35" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractWaterCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="31" endline="31" begincolumn="9" endcolumn="66" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractWaterCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="32" endline="32" begincolumn="9" endcolumn="43" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="AbstractWaterCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\Battleship.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\Cell.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\Cruiser.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\Destoryer.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\EnemyShipCell.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="19" endline="19" begincolumn="34" endcolumn="34" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" class="EnemyShipCell" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="20" endline="20" begincolumn="9" endcolumn="35" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="EnemyShipCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="21" endline="21" begincolumn="9" endcolumn="66" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="EnemyShipCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="22" endline="22" begincolumn="9" endcolumn="43" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="EnemyShipCell" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\GapCell.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\NotSunk.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="11" endline="11" begincolumn="34" endcolumn="34" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" class="NotSunk" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="12" endline="12" begincolumn="9" endcolumn="35" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="NotSunk" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="13" endline="13" begincolumn="9" endcolumn="66" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="NotSunk" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\OpenSeaCell.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\Ship.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\SpecificShipCell.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\Submarine.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\Sunk.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="11" endline="11" begincolumn="34" endcolumn="34" rule="ShortVariable" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" class="Sunk" method="equals" variable="o" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like o
+</violation>
+<violation beginline="12" endline="12" begincolumn="9" endcolumn="35" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="Sunk" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="13" endline="13" begincolumn="9" endcolumn="66" rule="IfStmtsMustUseBraces" ruleset="Braces" package="edu.neu.ccs.cs5004.Problem2" class="Sunk" method="equals" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+</file>
+<file name="D:\Code\CS5004\assignment-2-lzhang1124\src\main\java\edu\neu\ccs\cs5004\Problem2\markSunk.java">
+<violation beginline="1" endline="1" begincolumn="9" endcolumn="35" rule="PackageCase" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#PackageCase" priority="3">
+Package name contains upper case characters
+</violation>
+<violation beginline="3" endline="8" begincolumn="8" endcolumn="1" rule="ClassNamingConventions" ruleset="Naming" package="edu.neu.ccs.cs5004.Problem2" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/naming.html#ClassNamingConventions" priority="1">
+Class names should begin with an uppercase character
+</violation>
+</file>
+</pmd>

@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>Assignment for class CS5004 - Checkstyle report</title>
+    <link>${project.url}</link>
+    <description>Assignment for class CS5004 - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2018</copyright>
+    <item>
+      <title>File: 37,
+             Errors: 0,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>${project.url}/checkstyle.html</link>
+      <description>
+        <p>Click <a href="${project.url}/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Battleship.java">edu/neu/ccs/cs5004/assignment4/problem3/Battleship.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Sunk.java">edu/neu/ccs/cs5004/assignment4/problem3/Sunk.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Hit.java">edu/neu/ccs/cs5004/assignment4/problem3/Hit.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem1.Queue.java">edu/neu/ccs/cs5004/assignment4/problem1/Queue.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem2.Cons.java">edu/neu/ccs/cs5004/assignment4/problem2/Cons.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.AttackResult.java">edu/neu/ccs/cs5004/assignment4/problem3/AttackResult.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem1.MyQueue.java">edu/neu/ccs/cs5004/assignment4/problem1/MyQueue.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem1.MyStack.java">edu/neu/ccs/cs5004/assignment4/problem1/MyStack.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Row.java">edu/neu/ccs/cs5004/assignment4/problem3/Row.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Miss.java">edu/neu/ccs/cs5004/assignment4/problem3/Miss.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.OpenSeaCell.java">edu/neu/ccs/cs5004/assignment4/problem3/OpenSeaCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.AbstractShip.java">edu/neu/ccs/cs5004/assignment4/problem3/AbstractShip.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Cell.java">edu/neu/ccs/cs5004/assignment4/problem3/Cell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Printer.java">edu/neu/ccs/cs5004/assignment4/problem3/Printer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.ConsolePrinter.java">edu/neu/ccs/cs5004/assignment4/problem3/ConsolePrinter.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.NotSunk.java">edu/neu/ccs/cs5004/assignment4/problem3/NotSunk.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem2.Set.java">edu/neu/ccs/cs5004/assignment4/problem2/Set.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Map.java">edu/neu/ccs/cs5004/assignment4/problem3/Map.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.ShipCell.java">edu/neu/ccs/cs5004/assignment4/problem3/ShipCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.AbstractWaterCell.java">edu/neu/ccs/cs5004/assignment4/problem3/AbstractWaterCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Cruiser.java">edu/neu/ccs/cs5004/assignment4/problem3/Cruiser.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.GapCell.java">edu/neu/ccs/cs5004/assignment4/problem3/GapCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.ResultSunk.java">edu/neu/ccs/cs5004/assignment4/problem3/ResultSunk.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.AbstractShipCell.java">edu/neu/ccs/cs5004/assignment4/problem3/AbstractShipCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Ship.java">edu/neu/ccs/cs5004/assignment4/problem3/Ship.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.MarkSunk.java">edu/neu/ccs/cs5004/assignment4/problem3/MarkSunk.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.SpecificShipCell.java">edu/neu/ccs/cs5004/assignment4/problem3/SpecificShipCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Destoryer.java">edu/neu/ccs/cs5004/assignment4/problem3/Destoryer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.WaterCell.java">edu/neu/ccs/cs5004/assignment4/problem3/WaterCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.App.java">edu/neu/ccs/cs5004/App.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem1.Stack.java">edu/neu/ccs/cs5004/assignment4/problem1/Stack.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem2.Aset.java">edu/neu/ccs/cs5004/assignment4/problem2/Aset.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem2.EmptySet.java">edu/neu/ccs/cs5004/assignment4/problem2/EmptySet.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.AbstractCell.java">edu/neu/ccs/cs5004/assignment4/problem3/AbstractCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Column.java">edu/neu/ccs/cs5004/assignment4/problem3/Column.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.EnemyShipCell.java">edu/neu/ccs/cs5004/assignment4/problem3/EnemyShipCell.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#edu.neu.ccs.cs5004.assignment4.problem3.Submarine.java">edu/neu/ccs/cs5004/assignment4/problem3/Submarine.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

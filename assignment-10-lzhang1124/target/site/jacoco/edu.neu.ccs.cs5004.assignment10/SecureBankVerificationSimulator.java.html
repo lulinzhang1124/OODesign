@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SecureBankVerificationSimulator.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment10</a> &gt; <span class="el_source">SecureBankVerificationSimulator.java</span></div><h1>SecureBankVerificationSimulator.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment10;
+
+import java.io.IOException;
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+
+/**
+ * Represent a secure bank verification simulator.
+ */
+public class SecureBankVerificationSimulator implements ISecureBankVerificationSimulator {
+  private static final int MESSAGE_UPPER_BOUND = 30000;
+  private static final int MESSAGE_LOWER_BOUND = 10;
+  private static final int BIT_LENGTH = 32;
+
+  private final String outputDir;
+<span class="fc" id="L23">  private final IBank bank = new Bank();</span>
+<span class="fc" id="L24">  private final Map&lt;Integer, IClient&gt; clientsMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L25">  private final List&lt;IRequest&gt; requests = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L26">  private final List&lt;IResult&gt; results = new ArrayList&lt;&gt;();</span>
+
+  /**
+   * Constructs a SecureBankVerificationSimulator with the required user inputs.
+   *
+   * @param numClients       the number of unique clients
+   * @param numVerifications the number of verifications
+   * @param fraction         the fraction of invalid messages
+   * @param outputDir        the output file name
+   */
+  public SecureBankVerificationSimulator(int numClients, int numVerifications,
+<span class="fc" id="L37">                                         double fraction, String outputDir) {</span>
+<span class="fc" id="L38">    this.outputDir = outputDir;</span>
+
+<span class="fc" id="L40">    initClients(numClients);</span>
+<span class="fc" id="L41">    initRequests(numVerifications, fraction);</span>
+<span class="fc" id="L42">  }</span>
+
+  /**
+   * Accepts the user input through command-line arguments. Validates and parses the arguments
+   * using a cmdArgument, then passes the arguments to the simulator.
+   *
+   * @param args the command-line arguments
+   * @throws IOException if there exists an I/O failure
+   */
+  public static void main(String[] args) throws IOException {
+<span class="fc" id="L52">    ICmdArgument cmdArgument = new CmdArgument(args);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">    if (!cmdArgument.isValid()) {</span>
+<span class="fc" id="L54">      throw new IllegalArgumentException(cmdArgument.getErrorMessage());</span>
+    }
+<span class="fc" id="L56">    ISecureBankVerificationSimulator simulator =</span>
+<span class="fc" id="L57">        new SecureBankVerificationSimulator(cmdArgument.getNumClients(),</span>
+<span class="fc" id="L58">            cmdArgument.getNumVerifications(),</span>
+<span class="fc" id="L59">            cmdArgument.getFraction(),</span>
+<span class="fc" id="L60">            cmdArgument.getOutputDir());</span>
+<span class="fc" id="L61">    simulator.processVerifications();</span>
+<span class="fc" id="L62">    simulator.outputResults();</span>
+<span class="fc" id="L63">  }</span>
+
+  private void initClients(int numClients) {
+<span class="fc" id="L66">    Random random = new Random();</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">    for (int i = 0; i &lt; numClients; i++) {</span>
+<span class="fc" id="L68">      int clientId = random.nextInt(Integer.MAX_VALUE);</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">      while (clientsMap.containsKey(clientId)) {</span>
+<span class="fc" id="L70">        clientId++;</span>
+      }
+<span class="fc" id="L72">      IClient newClient = new Client(clientId);</span>
+<span class="fc" id="L73">      clientsMap.put(clientId, newClient);</span>
+<span class="fc" id="L74">      bank.addClient(clientId, newClient.getPublicKey());</span>
+    }
+<span class="fc" id="L76">  }</span>
+
+  private void initRequests(int numVerifications, double fraction) {
+<span class="fc" id="L79">    Integer[] idArr = new Integer[clientsMap.size()];</span>
+<span class="fc" id="L80">    idArr = clientsMap.keySet().toArray(idArr);</span>
+
+<span class="fc" id="L82">    Random random = new Random();</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">    for (int i = 0; i &lt; numVerifications; i++) {</span>
+<span class="fc" id="L84">      int clientId = idArr[random.nextInt(idArr.length)];</span>
+<span class="fc" id="L85">      IClient client = clientsMap.get(clientId);</span>
+
+<span class="fc" id="L87">      int msgInt = random.nextInt(MESSAGE_UPPER_BOUND + 1);</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">      while (msgInt &lt;= MESSAGE_LOWER_BOUND) {</span>
+<span class="fc" id="L89">        msgInt++;</span>
+      }
+<span class="fc" id="L91">      BigInteger message = new BigInteger(msgInt + &quot;&quot;);</span>
+<span class="fc" id="L92">      BigInteger signature = createSignature(message, client, fraction);</span>
+
+<span class="fc" id="L94">      requests.add(new Request(clientId, message, signature));</span>
+    }
+<span class="fc" id="L96">  }</span>
+
+  // creates a signature for the request. If the request is deemed invalid, the signature is
+  // just some randomly generated integer. If the request is deemed valid, the signature is
+  // generated using the RSA algorithm.
+  private BigInteger createSignature(BigInteger message, IClient client, double fraction) {
+<span class="fc" id="L102">    Random random = new Random();</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">    if (random.nextDouble() &gt;= fraction) {</span>
+<span class="fc" id="L104">      return client.provideSignature(message);</span>
+    } else {
+<span class="fc" id="L106">      return new BigInteger(BIT_LENGTH, new SecureRandom());</span>
+    }
+  }
+
+  /**
+   * Processes the verifications by sending client requests to the bank and gathers
+   * the transaction information.
+   */
+  @Override
+  public void processVerifications() {
+<span class="fc" id="L116">    int transactionNum = 0;</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">    for (IRequest request : requests) {</span>
+<span class="fc" id="L118">      boolean isVerified = bank.receiveRequest(request);</span>
+<span class="fc" id="L119">      String status = bank.getRequestStatus(request);</span>
+<span class="fc" id="L120">      IResult result = new Result(++transactionNum,</span>
+<span class="fc" id="L121">          LocalDateTime.now(),</span>
+          request,
+          isVerified,
+          status);
+<span class="fc" id="L125">      results.add(result);</span>
+<span class="fc" id="L126">    }</span>
+<span class="fc" id="L127">  }</span>
+
+  @Override
+  public void outputResults() throws IOException {
+<span class="fc" id="L131">    IPrinter printer = new edu.neu.ccs.cs5004.assignment10.Printer();</span>
+<span class="fc" id="L132">    printer.printPublicKeyUsage(bank.getPublicKeyUsage());</span>
+<span class="fc" id="L133">    printer.printTopTenClients(bank.getClientsSentRequest());</span>
+<span class="fc" id="L134">    printer.printIDsDepositRejected(bank.getIdDepositRejected());</span>
+<span class="fc" id="L135">    printer.printIDsWithdrawalRejected(bank.getIdWithdrawalRejected());</span>
+
+<span class="fc" id="L137">    ICsvFileGenerator csvFileGenerator = new CsvFileGenerator();</span>
+<span class="fc" id="L138">    csvFileGenerator.generateCsvFile(results, outputDir);</span>
+<span class="fc" id="L139">  }</span>
+
+  @Override
+  public boolean equals(Object other) {
+<span class="fc bfc" id="L143" title="All 2 branches covered.">    if (this == other) {</span>
+<span class="fc" id="L144">      return true;</span>
+    }
+<span class="fc bfc" id="L146" title="All 4 branches covered.">    if (other == null || getClass() != other.getClass()) {</span>
+<span class="fc" id="L147">      return false;</span>
+    }
+
+<span class="fc" id="L150">    SecureBankVerificationSimulator that = (SecureBankVerificationSimulator) other;</span>
+
+<span class="pc bpc" id="L152" title="3 of 6 branches missed.">    if (outputDir != null ? !outputDir.equals(that.outputDir) : that.outputDir != null) {</span>
+<span class="fc" id="L153">      return false;</span>
+    }
+<span class="pc bpc" id="L155" title="1 of 4 branches missed.">    return clientsMap.equals(that.clientsMap) &amp;&amp; requests.equals(that.requests);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc bfc" id="L160" title="All 2 branches covered.">    int result = outputDir != null ? outputDir.hashCode() : 0;</span>
+<span class="fc" id="L161">    result = 31 * result + clientsMap.hashCode();</span>
+<span class="fc" id="L162">    result = 31 * result + requests.hashCode();</span>
+<span class="fc" id="L163">    return result;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

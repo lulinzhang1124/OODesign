@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>FriendOfFriend.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment8.recommendation</a> &gt; <span class="el_source">FriendOfFriend.java</span></div><h1>FriendOfFriend.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment8.recommendation;
+
+import edu.neu.ccs.cs5004.assignment8.TwitterGraph;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * Represents friend of friend criteria.
+ */
+<span class="fc" id="L13">public class FriendOfFriend implements RecommendationCriteria {</span>
+
+
+  /**
+   * Recommendation made based on current criteria.
+   *
+   * @param graph          - the graph we have created by using import.
+   * @param useerId        - the specific useerId we are processing.
+   * @param recommends     - the user's recommendation list.
+   * @param numOfRecommend - how many users the program will recommend.
+   */
+  @Override
+  public void recommendationBasedOnCriteria(
+      TwitterGraph graph, Integer useerId, List&lt;Integer&gt; recommends, Integer numOfRecommend) {
+
+<span class="fc" id="L28">    friendOfFriend(graph, useerId, recommends, numOfRecommend);</span>
+<span class="fc" id="L29">  }</span>
+
+
+  /**
+   * Recommend by using FriendOfFriend.
+   *
+   * @param graph          - the graph we have created by using import.
+   * @param useerId        - the id of the user that program will recommend for.
+   * @param recommends     - the user's recommendation list.
+   * @param numOfRecommend - how many users the program will recommend.
+   */
+  private void friendOfFriend(TwitterGraph graph, Integer useerId, List&lt;Integer&gt; recommends,
+
+                              Integer numOfRecommend) {
+    //check if has enough recommendations
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">    if (recommends.size() &gt;= numOfRecommend) {</span>
+<span class="nc" id="L45">      return;</span>
+    }
+<span class="fc" id="L47">    int count = numOfRecommend - recommends.size();</span>
+
+
+<span class="fc" id="L50">    Set&lt;Integer&gt; follows = graph.getFollows(useerId);</span>
+<span class="fc" id="L51">    List&lt;Integer&gt; friendsOfFriends = new LinkedList&lt;&gt;();</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">    for (Integer id : follows) {</span>
+<span class="fc" id="L53">      Set&lt;Integer&gt; temp = graph.getNode(id).getFollows();</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">      for (Integer id2 : temp) {</span>
+<span class="fc bfc" id="L55" title="All 6 branches covered.">        if ((!friendsOfFriends.contains(id2)) &amp;&amp; (!follows.contains(id2)) &amp;&amp; !id2.equals(useerId)) {</span>
+<span class="fc" id="L56">          friendsOfFriends.add(id2);</span>
+        }
+<span class="fc" id="L58">      }</span>
+<span class="fc" id="L59">    }</span>
+
+<span class="fc bfc" id="L61" title="All 2 branches covered.">    if (friendsOfFriends.size() &gt; count) {</span>
+<span class="fc" id="L62">      Collections.sort(friendsOfFriends);</span>
+    }
+
+<span class="fc bfc" id="L65" title="All 4 branches covered.">    for (int i = 0; i &lt; friendsOfFriends.size() &amp;&amp; i &lt; count; i++) {</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">      if (!recommends.contains(friendsOfFriends.get(i))) {</span>
+<span class="fc" id="L67">        recommends.add(friendsOfFriends.get(i));</span>
+      }
+    }
+<span class="fc" id="L70">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

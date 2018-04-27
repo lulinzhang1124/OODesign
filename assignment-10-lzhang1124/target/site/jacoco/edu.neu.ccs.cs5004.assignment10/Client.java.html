@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Client.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment10</a> &gt; <span class="el_source">Client.java</span></div><h1>Client.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment10;
+
+import java.math.BigInteger;
+
+/**
+ * Represents a client.
+ */
+public class Client implements IClient {
+
+  private final int clientId;
+
+  private IKey publicKey;
+  private IKey privateKey;
+
+  /**
+   * Constructs a new Client object with a client ID.
+   *
+   * @param clientId an integer
+   */
+<span class="fc" id="L20">  public Client(int clientId) {</span>
+<span class="fc" id="L21">    this.clientId = clientId;</span>
+<span class="fc" id="L22">    initKeys();</span>
+<span class="fc" id="L23">  }</span>
+
+  private void initKeys() {
+<span class="fc" id="L26">    IRsaKey rsaKey = new RsaKey();</span>
+<span class="fc" id="L27">    publicKey = rsaKey.getPublicKey();</span>
+<span class="fc" id="L28">    privateKey = rsaKey.getPrivateKey();</span>
+<span class="fc" id="L29">  }</span>
+
+  /**
+   * Returns the client ID.
+   *
+   * @return the client ID.
+   */
+  @Override
+  public int getId() {
+<span class="nc" id="L38">    return clientId;</span>
+  }
+
+  /**
+   * Returns the public key of this client.
+   *
+   * @return the public key of this client.
+   */
+  @Override
+  public IKey getPublicKey() {
+<span class="fc" id="L48">    return publicKey;</span>
+  }
+
+  /**
+   * Provides a signature for the message using the private key. The underlying algorithm is
+   * RSA signature generation algorithm.
+   *
+   * @param message the message to be encrypted.
+   * @return the signature.
+   */
+  @Override
+  public BigInteger provideSignature(BigInteger message) {
+<span class="fc" id="L60">    return privateKey.encryptOrDecrypt(message);</span>
+  }
+
+  @Override
+  public boolean equals(Object other) {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">    if (this == other) {</span>
+<span class="fc" id="L66">      return true;</span>
+    }
+<span class="fc bfc" id="L68" title="All 4 branches covered.">    if (other == null || getClass() != other.getClass()) {</span>
+<span class="fc" id="L69">      return false;</span>
+    }
+
+<span class="fc" id="L72">    Client client = (Client) other;</span>
+
+<span class="fc bfc" id="L74" title="All 2 branches covered.">    return clientId == client.clientId;</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L79">    return clientId;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L84">    return &quot;Client ID &quot; + clientId;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

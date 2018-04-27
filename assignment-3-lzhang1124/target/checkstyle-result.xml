@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\App.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem1\AbstractDeque.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem1\Deque.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem1\Empty.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem1\EmptyFifoDeque.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem1\EmptyFiloDeque.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem1\FifoDeque.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem1\FiloDeque.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem1\IllegalOperationException.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\AbstractEmployee.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\AbstractSecretary.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\Employee.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\GeneralSecretary.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\IGeneralSecretary.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\ILawyer.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\ILegalSecretary.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\Lawyer.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\LegalSecretary.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\Name.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\pkg1\HrManager.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\pkg1\IhrManager.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\pkg1\Salary.java">
+</file>
+<file name="D:\Code\CS5004\assignment-3-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment3\problem2\Secretary.java">
+</file>
+</checkstyle>

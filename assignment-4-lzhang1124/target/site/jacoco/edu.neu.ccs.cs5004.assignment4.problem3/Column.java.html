@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Column.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment4.problem3</a> &gt; <span class="el_source">Column.java</span></div><h1>Column.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment4.problem3;
+
+/**
+ * Represent a column in the map.
+ */
+
+<span class="pc" id="L7">public enum Column {</span>
+
+<span class="fc" id="L9">  A, B, C, D, E, F, G, H, I, J;</span>
+
+  /**
+   * Covert an integer to the corresponding enum.
+   *
+   * @param index the integer to be covert
+   * @return the corresponding enum
+   * @throws IndexOutOfBoundsException when there is no such enum represent this integer.
+   */
+  static Column valueOf(int index) throws IndexOutOfBoundsException {
+<span class="fc bfc" id="L19" title="All 11 branches covered.">    switch (index) {</span>
+      case 0:
+<span class="fc" id="L21">        return A;</span>
+      case 1:
+<span class="fc" id="L23">        return B;</span>
+      case 2:
+<span class="fc" id="L25">        return C;</span>
+      case 3:
+<span class="fc" id="L27">        return D;</span>
+      case 4:
+<span class="fc" id="L29">        return E;</span>
+      case 5:
+<span class="fc" id="L31">        return F;</span>
+      case 6:
+<span class="fc" id="L33">        return G;</span>
+      case 7:
+<span class="fc" id="L35">        return H;</span>
+      case 8:
+<span class="fc" id="L37">        return I;</span>
+      case 9:
+<span class="fc" id="L39">        return J;</span>
+      default:
+<span class="fc" id="L41">        throw new IndexOutOfBoundsException(&quot;Column index out of boundary.&quot;);</span>
+    }
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L47">    return &quot;Column{}&quot;;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\Edge.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\FileReader.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\Graph.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\IEdge.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\IRecommendationSystem.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\Number.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\recommendation\FriendOfFriend.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\recommendation\Influencer.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\recommendation\Random.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\recommendation\RecommendationCriteria.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\RecommendationSystem.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\RecommendLauncher.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\TwitterGraph.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\TwitterUser.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\User.java">
+</file>
+<file name="D:\Code\CS5004\assignment-8-shigong130-lzhang1124\src\main\java\edu\neu\ccs\cs5004\assignment8\UserIterator.java">
+</file>
+</checkstyle>
