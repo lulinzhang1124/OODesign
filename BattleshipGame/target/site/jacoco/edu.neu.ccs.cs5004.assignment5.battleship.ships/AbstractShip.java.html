@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AbstractShip.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.ships</a> &gt; <span class="el_source">AbstractShip.java</span></div><h1>AbstractShip.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.ships;
+
+
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.Cell;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * Represents an abstract ship.
+ */
+public abstract class AbstractShip implements Ship {
+
+  protected Integer size;
+  protected Integer numberHitCells;
+  private List&lt;Cell&gt; observers;
+
+  /**
+   * Constructor of a ship.
+   *
+   * @param size           - the number of cells a ship needs.
+   * @param numberHitCells - the number of cells has been hit.
+   */
+<span class="fc" id="L25">  public AbstractShip(Integer size, Integer numberHitCells) {</span>
+<span class="fc" id="L26">    this.size = size;</span>
+<span class="fc" id="L27">    this.numberHitCells = numberHitCells;</span>
+<span class="fc" id="L28">    observers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L29">  }</span>
+
+  /**
+   * add observer to a list of observers.
+   *
+   * @param observer to register to the observable.
+   */
+  @Override
+  public void registerObserver(Cell observer) {
+<span class="fc" id="L38">    observers.add(observer);</span>
+<span class="fc" id="L39">    observer.update(this);</span>
+<span class="fc" id="L40">  }</span>
+
+  /**
+   * notify observer if a model was changed.
+   */
+  @Override
+  public void notifyObservers() {
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">    for (Cell obs : observers) {</span>
+<span class="nc" id="L48">      obs.update(this);</span>
+<span class="nc" id="L49">    }</span>
+<span class="fc" id="L50">  }</span>
+
+  /**
+   * remove observer from a list of observers.
+   *
+   * @param observer to remove.
+   */
+  @Override
+  public void removeObserver(Cell observer) {
+<span class="nc" id="L59">    observers.remove(observer);</span>
+<span class="nc" id="L60">  }</span>
+
+
+  /**
+   * Get getSize of the ship.
+   *
+   * @return getSize of the ship.
+   */
+  @Override
+  public Integer getSize() {
+<span class="fc" id="L70">    return this.size;</span>
+  }
+
+
+  /**
+   * Getter.
+   *
+   * @return the number of cells hit.
+   */
+  public Integer getNumberHitCells() {
+<span class="fc" id="L80">    return numberHitCells;</span>
+  }
+
+
+  /**
+   * Indicates a ship is sunk or not.
+   *
+   * @return true if the ship is sunk, false otherwise.
+   */
+  @Override
+  public Boolean isSunk() {
+<span class="fc" id="L91">    return this.numberHitCells.equals(this.size);</span>
+  }
+
+  /**
+   * Indicate if the ship is hit or not.
+   *
+   * @return the updated ship after it was hit.
+   */
+  @Override
+  public Ship hitShip() {
+<span class="fc" id="L101">    this.numberHitCells++;</span>
+<span class="fc" id="L102">    return this;</span>
+  }
+
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L108" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L109">      return true;</span>
+    }
+<span class="fc bfc" id="L111" title="All 4 branches covered.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L112">      return false;</span>
+    }
+<span class="fc" id="L114">    AbstractShip that = (AbstractShip) obj;</span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">    return Objects.equals(size, that.size)</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">            &amp;&amp; Objects.equals(numberHitCells, that.numberHitCells);</span>
+  }
+
+  @Override
+  public int hashCode() {
+
+<span class="nc" id="L122">    return Objects.hash(size, numberHitCells);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

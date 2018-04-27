@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GameConsole.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship</a> &gt; <span class="el_source">GameConsole.java</span></div><h1>GameConsole.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship;
+
+import edu.neu.ccs.cs5004.assignment5.battleship.controller.Computer;
+import edu.neu.ccs.cs5004.assignment5.battleship.controller.DebugGame;
+import edu.neu.ccs.cs5004.assignment5.battleship.controller.Game;
+import edu.neu.ccs.cs5004.assignment5.battleship.controller.Human;
+import edu.neu.ccs.cs5004.assignment5.battleship.controller.PlayerAttackResult;
+import edu.neu.ccs.cs5004.assignment5.battleship.controller.ReadConsole;
+import edu.neu.ccs.cs5004.assignment5.battleship.controller.RealGame;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Number;
+import edu.neu.ccs.cs5004.assignment5.battleship.strategy.RandomStrategy;
+import edu.neu.ccs.cs5004.assignment5.battleship.strategy.SmartStrategy;
+import edu.neu.ccs.cs5004.assignment5.battleship.strategy.UserStrategy;
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.ConsolePrinter;
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.Printer;
+
+/**
+ * Represents the game console to run the game.
+ */
+<span class="fc" id="L20">public class GameConsole {</span>
+<span class="fc" id="L21">  private static Printer printer = new ConsolePrinter();</span>
+
+  /**
+   * Main function to run the game.
+   *
+   * @param args - command-line arguments.
+   */
+  public static void main(String[] args) {
+<span class="nc" id="L29">    printer = new ConsolePrinter();</span>
+
+<span class="nc" id="L31">    printer.printMessage(&quot;welcome&quot;);</span>
+
+<span class="nc" id="L33">    GameConsole gameConsole = new GameConsole();</span>
+<span class="nc" id="L34">    ReadConsole reader = new ReadConsole();</span>
+
+    try {
+      //choose game mode
+<span class="nc" id="L38">      Game game = gameConsole.chooseGameMode(reader);</span>
+
+      //choose fleet map generate ways(by user/random)
+<span class="nc" id="L41">      game.getHuman().placeShips();</span>
+<span class="nc" id="L42">      game.getComputer().placeShips();</span>
+
+      //print map by mode
+<span class="nc" id="L45">      game.printMaps(printer);</span>
+
+      //play game function:
+<span class="nc" id="L48">      printer.printMessage(&quot;mapSetUp&quot;);</span>
+
+<span class="nc" id="L50">      gameConsole.chooseAttackStrategy(reader, game.getHuman(), game.getComputer());</span>
+
+<span class="nc" id="L52">      int sunkShipNum1 = 0;</span>
+<span class="nc" id="L53">      int sunkShipNum2 = 0;</span>
+<span class="nc" id="L54">      int shipNum = game.getComputer().getIbattleMap().getBattleshipNum()</span>
+<span class="nc" id="L55">              + game.getComputer().getIbattleMap().getCruiserNum()</span>
+<span class="nc" id="L56">              + game.getComputer().getIbattleMap().getSubmarineNum()</span>
+<span class="nc" id="L57">              + game.getComputer().getIbattleMap().getDestroyerNum();</span>
+
+<span class="nc" id="L59">      PlayerAttackResult humanAttackResult = new PlayerAttackResult(null, false,</span>
+              false, 0);
+<span class="nc" id="L61">      PlayerAttackResult computerAttackResult = new PlayerAttackResult(null, false,</span>
+              false, 0);
+
+      while (true) {
+        //human turn to attack;
+<span class="nc" id="L66">        humanAttackResult = game.getHuman().humanTurn(game.getComputer(), sunkShipNum1,</span>
+                humanAttackResult);
+<span class="nc" id="L68">        sunkShipNum1 = humanAttackResult.getSunkCount();</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (sunkShipNum1 == shipNum) {</span>
+<span class="nc" id="L70">          game.printMaps(printer);</span>
+<span class="nc" id="L71">          printer.printMessage(&quot;winnerHuman&quot;);</span>
+<span class="nc" id="L72">          return;</span>
+        }
+
+        //computer turn to attack
+<span class="nc" id="L76">        computerAttackResult = game.getComputer().computerTurn(game.getHuman(), sunkShipNum2,</span>
+                computerAttackResult);
+<span class="nc" id="L78">        sunkShipNum2 = computerAttackResult.getSunkCount();</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (sunkShipNum2 == shipNum) {</span>
+<span class="nc" id="L80">          game.printMaps(printer);</span>
+<span class="nc" id="L81">          printer.printMessage(&quot;winnerComputer&quot;);</span>
+<span class="nc" id="L82">          return;</span>
+        }
+<span class="nc" id="L84">        game.printMaps(printer);</span>
+      }
+<span class="nc" id="L86">    } catch (ReadConsole.UserInteruptException e) {</span>
+<span class="nc" id="L87">      printer.printMessage(&quot;exit&quot;);</span>
+    }
+<span class="nc" id="L89">  }</span>
+
+  /**
+   * Let the use to choose game mode.
+   *
+   * @param reader - a reader that can accept users input.
+   * @return a game that based on users choice.
+   */
+  private Game chooseGameMode(ReadConsole reader) throws ReadConsole.UserInteruptException {
+<span class="nc" id="L98">    printer.printMessage(&quot;chooseGameMode&quot;);</span>
+
+<span class="nc" id="L100">    int num = reader.inputNum(1, 2);</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">    if (num == Number.ONE.getValue()) {</span>
+<span class="nc" id="L102">      return new RealGame();</span>
+    } else {
+<span class="nc" id="L104">      return new DebugGame();</span>
+    }
+  }
+
+  /**
+   * Let the use to choose attack strategy.
+   *
+   * @param reader   - a reader that can accept users input.
+   * @param human    - a human player.
+   * @param computer - a computer player.
+   */
+  private void chooseAttackStrategy(ReadConsole reader, Human human, Computer computer) throws
+          ReadConsole.UserInteruptException {
+<span class="nc" id="L117">    printer.printMessage(&quot;humanAttackStrategy&quot;);</span>
+
+<span class="nc" id="L119">    int num = reader.inputNum(1, 3);</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">    if (num == Number.ONE.getValue()) {</span>
+<span class="nc" id="L121">      human.setStrategy(new UserStrategy(reader, human.getIbattleMap()));</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">    } else if (num == Number.TWO.getValue()) {</span>
+<span class="nc" id="L123">      human.setStrategy(new RandomStrategy(human.getIbattleMap()));</span>
+    } else {
+<span class="nc" id="L125">      human.setStrategy(new SmartStrategy(human.getIbattleMap()));</span>
+    }
+
+<span class="nc" id="L128">    printer.printMessage(&quot;computerAttackStrategy&quot;);</span>
+
+<span class="nc" id="L130">    num = reader.inputNum(1, 2);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">    if (num == Number.ONE.getValue()) {</span>
+<span class="nc" id="L132">      computer.setStrategy(new RandomStrategy(computer.getIbattleMap()));</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">    } else if (num == Number.TWO.getValue()) {</span>
+<span class="nc" id="L134">      computer.setStrategy(new SmartStrategy(computer.getIbattleMap()));</span>
+    }
+<span class="nc" id="L136">  }</span>
+
+  @Override
+  public boolean equals(Object other) {
+<span class="fc bfc" id="L140" title="All 2 branches covered.">    if (other == null) {</span>
+<span class="fc" id="L141">      return false;</span>
+    }
+<span class="fc bfc" id="L143" title="All 2 branches covered.">    return this.getClass() == other.getClass();</span>
+  }
+
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L149">    return 23;</span>
+  }
+
+
+  @Override
+  public String toString() {
+<span class="fc" id="L155">    return &quot;GameConsole{}&quot;;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

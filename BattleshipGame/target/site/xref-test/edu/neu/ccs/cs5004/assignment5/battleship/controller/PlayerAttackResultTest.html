@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>PlayerAttackResultTest xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../../../../testapidocs/edu/neu/ccs/cs5004/assignment5/battleship/controller/PlayerAttackResultTest.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> edu.neu.ccs.cs5004.assignment5.battleship.controller;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> org.junit.Assert;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> org.junit.Before;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> org.junit.Test;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> edu.neu.ccs.cs5004.assignment5.battleship.enums.Column;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> edu.neu.ccs.cs5004.assignment5.battleship.enums.Coordinate;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> edu.neu.ccs.cs5004.assignment5.battleship.enums.Row;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../../edu/neu/ccs/cs5004/assignment5/battleship/controller/PlayerAttackResultTest.html">PlayerAttackResultTest</a> {
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>    <strong class="jxr_keyword">private</strong> PlayerAttackResult playerAttackResult;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>    <strong class="jxr_keyword">private</strong> PlayerAttackResult sameRefResult;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>    <strong class="jxr_keyword">private</strong> PlayerAttackResult sameStateResult;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>    <strong class="jxr_keyword">private</strong> PlayerAttackResult yetAnotherResult;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>    <strong class="jxr_keyword">private</strong> PlayerAttackResult diffResult;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>    <strong class="jxr_keyword">private</strong> PlayerAttackResult sameDiffResult;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>    <strong class="jxr_keyword">private</strong> PlayerAttackResult anotherDiffResult;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>    <strong class="jxr_keyword">private</strong> PlayerAttackResult additionalDiffResult;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>    <strong class="jxr_keyword">private</strong> PlayerAttackResult nullResult;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>    <strong class="jxr_keyword">private</strong> Coordinate coordinate;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>    @Before
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setUp() <strong class="jxr_keyword">throws</strong> Exception{
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      coordinate = <strong class="jxr_keyword">new</strong> Coordinate(Column.A, Row.ROW1);
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      playerAttackResult = <strong class="jxr_keyword">new</strong> PlayerAttackResult(coordinate,<strong class="jxr_keyword">true</strong>,<strong class="jxr_keyword">true</strong>,1);
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      sameRefResult = playerAttackResult;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      sameStateResult = <strong class="jxr_keyword">new</strong> PlayerAttackResult(coordinate,<strong class="jxr_keyword">true</strong>,<strong class="jxr_keyword">true</strong>,1);
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      yetAnotherResult = <strong class="jxr_keyword">new</strong> PlayerAttackResult(coordinate,<strong class="jxr_keyword">true</strong>,<strong class="jxr_keyword">true</strong>,1);
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>      diffResult = <strong class="jxr_keyword">new</strong> PlayerAttackResult(coordinate,false,false,2);
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      anotherDiffResult = <strong class="jxr_keyword">new</strong> PlayerAttackResult(coordinate,<strong class="jxr_keyword">true</strong>,false,1);
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      additionalDiffResult = <strong class="jxr_keyword">new</strong> PlayerAttackResult(coordinate,<strong class="jxr_keyword">true</strong>,<strong class="jxr_keyword">true</strong>,2);
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      sameDiffResult = diffResult;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      nullResult = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>    }
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>    @Test
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> getCoordinate() {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      Assert.assertEquals(coordinate,playerAttackResult.getCoordinate());
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>    }
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>    @Test
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> isHit() {
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      Assert.assertEquals(<strong class="jxr_keyword">true</strong>,playerAttackResult.isHitShip());
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      Assert.assertFalse(diffResult.isHitShip());
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>    }
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>    @Test
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> isShipSunk() {
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      Assert.assertTrue(playerAttackResult.isShipSunk());
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      Assert.assertFalse(diffResult.isShipSunk());
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>    }
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>    @Test
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> getSunkCount() {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      Assert.assertEquals(1,playerAttackResult.getSunkCount());
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      Assert.assertEquals(2,diffResult.getSunkCount());
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>    }
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>    @Test
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEquals() {
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      Assert.assertTrue(playerAttackResult.equals(playerAttackResult));
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      Assert.assertTrue(playerAttackResult.equals(sameRefResult));
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      Assert.assertTrue(playerAttackResult.equals(sameStateResult));
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      Assert.assertTrue(sameStateResult.equals(playerAttackResult));
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>      Assert.assertEquals(playerAttackResult.equals(sameStateResult), sameStateResult.equals(playerAttackResult));
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>      Assert.assertEquals(playerAttackResult.equals(sameStateResult)&amp;&amp; sameStateResult.equals(yetAnotherResult), yetAnotherResult.equals(playerAttackResult));
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      Assert.assertFalse(playerAttackResult.equals(<strong class="jxr_keyword">new</strong> Integer(1)));
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      Assert.assertFalse(playerAttackResult.equals(nullResult));
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      Assert.assertFalse(playerAttackResult.equals(diffResult));
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      Assert.assertFalse(playerAttackResult.equals(anotherDiffResult));
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      Assert.assertFalse(playerAttackResult.equals(additionalDiffResult));
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>    }
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>    @Test
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testHashCode() {
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      Assert.assertEquals(playerAttackResult.equals(sameRefResult), playerAttackResult.hashCode()== sameRefResult.hashCode());
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      Assert.assertEquals(playerAttackResult.equals(sameStateResult), playerAttackResult.hashCode()== sameStateResult.hashCode());
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>      Assert.assertEquals(diffResult.equals(sameDiffResult),diffResult.hashCode() == sameDiffResult.hashCode());
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>    }
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>    @Test
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testToString() {
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      String temp =<span class="jxr_string">"PlayerAttackResult{"</span> +
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>              <span class="jxr_string">"coordinate="</span> + playerAttackResult.getCoordinate() +
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>              <span class="jxr_string">", isHitShip="</span> + playerAttackResult.isHitShip() +
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>              <span class="jxr_string">", isShipSunk="</span> + playerAttackResult.isShipSunk() +
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>              <span class="jxr_string">", sunkCount="</span> + playerAttackResult.getSunkCount() +
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>              '}';
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>      Assert.assertEquals(temp,playerAttackResult.toString());
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>    }
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2018. All rights reserved.</div>
+</body>
+</html>

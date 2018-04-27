@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Human.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.controller</a> &gt; <span class="el_source">Human.java</span></div><h1>Human.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.controller;
+
+
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.EnemyShipCell;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Column;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Coordinate;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Direction;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Number;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Row;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Battleship;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Cruiser;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Destroyer;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Ship;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Submarine;
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.ConsolePrinter;
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.Printer;
+
+/**
+ * Represents a human player in the game.
+ */
+public class Human extends AbstractPlayer implements Player {
+
+  public Human() {
+<span class="fc" id="L24">    super();</span>
+<span class="fc" id="L25">  }</span>
+
+
+  /**
+   * Place ships on the map (user/random).
+   */
+  @Override
+  public void placeShips() throws ReadConsole.UserInteruptException {
+<span class="nc" id="L33">    Printer.CONSOLE_PRINTER.printMessage(&quot;playerChooseModeToPlaceShip&quot;);</span>
+
+<span class="nc" id="L35">    ReadConsole reader = new ReadConsole();</span>
+
+<span class="nc" id="L37">    int num = reader.inputNum(1, 2);</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">    if (num ==  Number.ONE.getValue() ) {</span>
+<span class="nc" id="L39">      Printer.CONSOLE_PRINTER.printMessage(&quot;generateHumanRandomMap&quot;);</span>
+<span class="nc" id="L40">      ifleetMap.randomPlaceShip();</span>
+    } else {
+<span class="nc" id="L42">      userPlaceAllShips(reader);</span>
+    }
+<span class="nc" id="L44">  }</span>
+
+  /**
+   * Place one ship on the map.
+   *
+   * @param reader bufferReader to get the input information.
+   */
+  public void userPlaceShip(ReadConsole reader) throws ReadConsole.UserInteruptException {
+
+    // get ship type
+<span class="fc" id="L54">    Ship ship = chooseShipType(reader);</span>
+
+    // get row and column
+    while (true) {
+
+<span class="fc" id="L59">      Printer.CONSOLE_PRINTER.printMessage(&quot;inputShipLocation&quot;);</span>
+
+<span class="fc" id="L61">      int[] location = reader.inputLocation();</span>
+<span class="fc" id="L62">      Row row = Row.values()[location[1]];</span>
+<span class="fc" id="L63">      Column col = Column.values()[location[0]];</span>
+
+
+      //get direction
+<span class="fc" id="L67">      Printer.CONSOLE_PRINTER.printMessage(&quot;inputDirections&quot;);</span>
+
+<span class="fc" id="L69">      int direction = reader.inputNum(1, 2);</span>
+      Direction dir;
+
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">      if (direction ==  Number.ONE.getValue() ) {</span>
+<span class="nc" id="L73">        dir = Direction.HORIZONTAL;</span>
+      } else {
+<span class="fc" id="L75">        dir = Direction.VERTICAL;</span>
+      }
+
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">      if (ifleetMap.canPlaceShip(ship, row, col, dir)) {</span>
+
+<span class="fc" id="L80">        ifleetMap.placeShip(ship, row, col, dir);</span>
+<span class="fc" id="L81">        ifleetMap.prettyPrint(new ConsolePrinter());</span>
+<span class="fc" id="L82">        return;</span>
+      } else {
+<span class="nc" id="L84">        Printer.CONSOLE_PRINTER.printMessage(&quot;wrongCoordination&quot;);</span>
+      }
+<span class="nc" id="L86">    }</span>
+  }
+
+  /**
+   * Get the ship type which to be put on the map.
+   *
+   * @param reader bufferReader to gain the input.
+   * @return the ship to be placed on the map.
+   */
+  Ship chooseShipType(ReadConsole reader) throws ReadConsole.UserInteruptException {
+
+<span class="fc" id="L97">    Printer.CONSOLE_PRINTER.printMessage(&quot;chooseShipType&quot;);</span>
+
+<span class="fc" id="L99">    int num = reader.inputNum(1, 4);</span>
+    Ship ship;
+
+<span class="pc bpc" id="L102" title="3 of 4 branches missed.">    switch (num) {</span>
+      case 1:
+<span class="nc" id="L104">        ship = new Battleship(4, 0);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (ifleetMap.getCountBattleship() == ifleetMap.getBattleshipNum()) {</span>
+<span class="nc" id="L106">          Printer.CONSOLE_PRINTER.printMessage(&quot;enoughBattleship&quot;);</span>
+<span class="nc" id="L107">          return chooseShipType(reader);</span>
+        }
+        break;
+      case 2:
+<span class="fc" id="L111">        ship = new Cruiser(3, 0);</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (ifleetMap.getCountCruiser() == ifleetMap.getCruiserNum()) {</span>
+<span class="nc" id="L113">          Printer.CONSOLE_PRINTER.printMessage(&quot;enoughCruisers&quot;);</span>
+<span class="nc" id="L114">          return chooseShipType(reader);</span>
+        }
+        break;
+      case 3:
+<span class="nc" id="L118">        ship = new Submarine(2, 0);</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        if (ifleetMap.getCountSubmarine() == ifleetMap.getSubmarineNum()) {</span>
+<span class="nc" id="L120">          Printer.CONSOLE_PRINTER.printMessage(&quot;enoughSubmarine&quot;);</span>
+<span class="nc" id="L121">          return chooseShipType(reader);</span>
+        }
+        break;
+      default:
+<span class="nc" id="L125">        ship = new Destroyer(1, 0);</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        if (ifleetMap.getCountDestroyer() == ifleetMap.getDestroyerNum()) {</span>
+<span class="nc" id="L127">          Printer.CONSOLE_PRINTER.printMessage(&quot;enoughDestroyer&quot;);</span>
+<span class="nc" id="L128">          return chooseShipType(reader);</span>
+        }
+    }
+<span class="fc" id="L131">    return ship;</span>
+  }
+
+  /**
+   * Place all the ships on the map.
+   *
+   * @param reader bufferReader to gain the input.
+   */
+  void userPlaceAllShips(ReadConsole reader) throws ReadConsole.UserInteruptException {
+
+<span class="nc bnc" id="L141" title="All 2 branches missed.">    while (ifleetMap.getCountBattleship() != ifleetMap.getBattleshipNum()</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">            || ifleetMap.getCountCruiser() != ifleetMap.getCruiserNum()</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">            || ifleetMap.getCountSubmarine() != ifleetMap.getSubmarineNum()</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">            || ifleetMap.getCountDestroyer() != ifleetMap.getDestroyerNum()) {</span>
+
+<span class="nc" id="L146">      userPlaceShip(reader);</span>
+    }
+<span class="nc" id="L148">    Printer.CONSOLE_PRINTER.printMessage(&quot;finishFleetMap&quot;);</span>
+<span class="nc" id="L149">    return;</span>
+  }
+
+  /**
+   * Human's turn to attack.
+   *
+   * @param computer       the computer player
+   * @param sunkShipNum    the current sunk ship number.
+   * @param previousResult PlayerAttackResult fot previous time.
+   * @return the PlayerAttackResult for this attack.
+   */
+  public PlayerAttackResult humanTurn(Computer computer, Integer sunkShipNum,
+                                      PlayerAttackResult previousResult)
+          throws ReadConsole.UserInteruptException {
+<span class="fc" id="L163">    Printer.CONSOLE_PRINTER.printMessage(&quot;playerTurn&quot;);</span>
+
+<span class="fc" id="L165">    Coordinate coordinate = getStrategy().generateAttackCoordinate(previousResult.isHitShip(),</span>
+<span class="fc" id="L166">            previousResult.isShipSunk());</span>
+<span class="fc" id="L167">    System.out.println(&quot;Player choose to attack &quot; + (char) (coordinate.getColumn().ordinal() + 65)</span>
+<span class="fc" id="L168">            + (coordinate.getRow().ordinal() + 1));</span>
+<span class="fc" id="L169">    int sunkCount = computer.getIfleetMap().attack(coordinate.getRow(), coordinate.getColumn(),</span>
+            sunkShipNum);
+<span class="fc" id="L171">    this.getIbattleMap().attack(computer, coordinate.getRow(), coordinate.getColumn());</span>
+
+<span class="fc" id="L173">    boolean isHit = this.getIbattleMap().getMap(coordinate.getRow(),</span>
+<span class="fc" id="L174">            coordinate.getColumn()) instanceof EnemyShipCell;</span>
+<span class="pc bpc" id="L175" title="1 of 2 branches missed.">    boolean isSunk = sunkCount - sunkShipNum ==  Number.ONE.getValue() ;</span>
+
+<span class="fc" id="L177">    return new PlayerAttackResult(coordinate, isHit, isSunk, sunkCount);</span>
+
+  }
+
+  /**
+   * Represent an exception is the cell is hit again by the user.
+   */
+<span class="nc" id="L184">  public static class CellHasBeenHitByUserException extends Exception {</span>
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L189" title="All 2 branches covered.">    if (obj == null) {</span>
+<span class="fc" id="L190">      return false;</span>
+    }
+
+<span class="fc bfc" id="L193" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L194">      return true;</span>
+    }
+<span class="fc bfc" id="L196" title="All 2 branches covered.">    if (!super.equals(obj)) {</span>
+<span class="fc" id="L197">      return false;</span>
+    }
+
+<span class="pc bpc" id="L200" title="1 of 2 branches missed.">    return this.getClass() == obj.getClass();</span>
+  }
+
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L206">    return 49;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L211">    return &quot;Human{&quot;</span>
+            +
+            &quot;ifleetMap=&quot;
+            + ifleetMap
+            +
+            &quot;, ibattleMap=&quot;
+            + ibattleMap
+            +
+            '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

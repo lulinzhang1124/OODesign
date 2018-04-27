@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: edu.neu.ccs.cs5004.assignment5.battleship.maps.FleetMapTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec

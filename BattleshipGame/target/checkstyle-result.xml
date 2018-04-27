@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/AbstractCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/AbstractShipCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/AbstractWaterCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/AttackResult.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/Cell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/EnemyShipCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/GapCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/Hit.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/IenemyShipCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/IspecificShipCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/MarkSunk.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/Miss.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/NotSunk.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/OpenSeaCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/ResultSunk.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/ShipCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/SpecificShipCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/Sunk.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/cells/WaterCell.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/AbstractGame.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/AbstractPlayer.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/Computer.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/DebugGame.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/Game.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/Human.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/Player.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/PlayerAttackResult.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/ReadConsole.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/controller/RealGame.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/enums/Column.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/enums/Coordinate.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/enums/Direction.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/enums/Number.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/enums/Row.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/enums/StrategyDirection.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/GameConsole.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/maps/AbstractMap.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/maps/BattleMap.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/maps/FleetMap.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/maps/IbattleMap.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/maps/IfleetMap.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/maps/Map.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/ships/AbstractShip.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/ships/Battleship.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/ships/Cruiser.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/ships/Destroyer.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/ships/Ship.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/ships/Submarine.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/strategy/RandomStrategy.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/strategy/SmartStrategy.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/strategy/Strategy.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/strategy/UserStrategy.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/viewer/ConsolePrinter.java">
+</file>
+<file name="/Users/zeko/GradSchool/TA/5004/grading/AutomatedAssignments/assignment-5/assignment5-part2-shigong130-lzhang1124/src/main/java/edu/neu/ccs/cs5004/assignment5/battleship/viewer/Printer.java">
+</file>
+</checkstyle>

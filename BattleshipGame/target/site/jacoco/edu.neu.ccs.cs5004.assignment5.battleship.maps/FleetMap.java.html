@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>FleetMap.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.maps</a> &gt; <span class="el_source">FleetMap.java</span></div><h1>FleetMap.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.maps;
+
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.Cell;
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.GapCell;
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.NotSunk;
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.OpenSeaCell;
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.SpecificShipCell;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Column;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Direction;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Row;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Battleship;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Cruiser;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Destroyer;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Ship;
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Submarine;
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.Printer;
+
+import java.util.Arrays;
+import java.util.Random;
+
+
+/**
+ * Represents a fleet map.
+ */
+public class FleetMap extends AbstractMap implements IfleetMap {
+  static final int ROW = 10;
+  static final int COLUMN = 10;
+
+
+  /**
+   * Constructor of fleet map.
+   */
+  public FleetMap() {
+<span class="fc" id="L34">    super();</span>
+<span class="fc" id="L35">  }</span>
+
+  /**
+   * Constructor of fleet map.
+   *
+   * @param battleshipNum the battleship number
+   * @param cruiserNum    the cruiser number
+   * @param submarineNum  the submarine number
+   * @param destroyerNum  the destroyer number
+   */
+  public FleetMap(int battleshipNum, int cruiserNum, int submarineNum, int destroyerNum) {
+<span class="fc" id="L46">    super(battleshipNum, cruiserNum, submarineNum, destroyerNum);</span>
+
+<span class="fc" id="L48">  }</span>
+
+  /**
+   * Get the current battleship on the map.
+   *
+   * @return the current battleship number.
+   */
+  @Override
+  public int getCountBattleship() {
+<span class="fc" id="L57">    return countBattleship;</span>
+  }
+
+
+  /**
+   * Get the current cruiser on the map.
+   *
+   * @return the current cruiser number.
+   */
+  @Override
+  public int getCountCruiser() {
+<span class="fc" id="L68">    return countCruiser;</span>
+  }
+
+  /**
+   * Get the current submarine on the map.
+   *
+   * @return the current submarine number.
+   */
+  @Override
+  public int getCountSubmarine() {
+<span class="fc" id="L78">    return countSubmarine;</span>
+  }
+
+  /**
+   * Get the current destroyer on the map.
+   *
+   * @return the current destroyer number.
+   */
+  @Override
+  public int getCountDestroyer() {
+<span class="fc" id="L88">    return countDestroyer;</span>
+  }
+
+  /**
+   * Indicate if the ship can be placed in given location.
+   *
+   * @param ship      the ship need to place.
+   * @param row       the row.
+   * @param col       the col.
+   * @param direction the direction to put the ship.
+   * @return true if the ship can be placed in given location ,false otherwise.
+   */
+  @Override
+  public boolean canPlaceShip(Ship ship, Row row, Column col, Direction direction) {
+<span class="fc bfc" id="L102" title="All 2 branches covered.">    for (int i = 0; i &lt; ship.getSize(); i++) {</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">      if (direction.equals(Direction.VERTICAL)) {</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        if (row.ordinal() + i &gt;= ROW</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">                || !getMap(Row.values()[row.ordinal() + i], col).getClass().equals(</span>
+                        OpenSeaCell.class)) {
+<span class="fc" id="L107">          return false;</span>
+        }
+      } else { //if(direction.equals(Direction.HORIZONTAL))
+<span class="fc bfc" id="L110" title="All 2 branches covered.">        if (col.ordinal() + i &gt;= COLUMN || !getMap(row,</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">                Column.values()[col.ordinal() + i]).getClass().equals(OpenSeaCell.class)) {</span>
+<span class="fc" id="L112">          return false;</span>
+        }
+      }
+    }
+<span class="fc" id="L116">    return true;</span>
+  }
+
+  /**
+   * Set the cells surrounding by the given ship to GapCell.
+   *
+   * @param ship      the ship to be placed
+   * @param row       the row
+   * @param col       the col
+   * @param direction the direction to place the ship
+   */
+  void setGapCell(Ship ship, Row row, Column col, Direction direction) {
+
+<span class="fc bfc" id="L129" title="All 2 branches covered.">    if (direction.equals(Direction.VERTICAL)) {</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">      for (int i = 0; i &lt; ship.getSize(); i++) {</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">        if (col.ordinal() != 0) {</span>
+<span class="fc" id="L132">          setMap(Row.values()[row.ordinal() + i], Column.values()[col.ordinal() - 1],</span>
+<span class="fc" id="L133">                  new GapCell(false));</span>
+        }
+<span class="fc bfc" id="L135" title="All 2 branches covered.">        if (col.ordinal() != 9) {</span>
+<span class="fc" id="L136">          setMap(Row.values()[row.ordinal() + i], Column.values()[col.ordinal() + 1],</span>
+<span class="fc" id="L137">                  new GapCell(false));</span>
+        }
+      }
+<span class="fc bfc" id="L140" title="All 2 branches covered.">      if (row.ordinal() != 0) {</span>
+<span class="fc" id="L141">        setMap(Row.values()[row.ordinal() - 1], col, new GapCell(false));</span>
+      }
+<span class="pc bpc" id="L143" title="1 of 4 branches missed.">      if (row.ordinal() != 0 &amp;&amp; col.ordinal() != 0) {</span>
+<span class="fc" id="L144">        setMap(Row.values()[row.ordinal() - 1], Column.values()[col.ordinal() - 1],</span>
+<span class="fc" id="L145">                new GapCell(false));</span>
+      }
+<span class="pc bpc" id="L147" title="1 of 4 branches missed.">      if (row.ordinal() != 0 &amp;&amp; col.ordinal() != 9) {</span>
+<span class="fc" id="L148">        setMap(Row.values()[row.ordinal() - 1], Column.values()[col.ordinal() + 1],</span>
+<span class="fc" id="L149">                new GapCell(false));</span>
+      }
+<span class="fc bfc" id="L151" title="All 2 branches covered.">      if (row.ordinal() + ship.getSize() - 1 != 9) {</span>
+<span class="fc" id="L152">        setMap(Row.values()[row.ordinal() + ship.getSize()], col, new GapCell(false));</span>
+      }
+<span class="fc bfc" id="L154" title="All 4 branches covered.">      if (row.ordinal() + ship.getSize() - 1 != 9 &amp;&amp; col.ordinal() != 0) {</span>
+<span class="fc" id="L155">        setMap(Row.values()[row.ordinal() + ship.getSize()], Column.values()[col.ordinal() - 1],</span>
+<span class="fc" id="L156">                new GapCell(false));</span>
+      }
+<span class="fc bfc" id="L158" title="All 4 branches covered.">      if (row.ordinal() + ship.getSize() - 1 != 9 &amp;&amp; col.ordinal() != 9) {</span>
+<span class="fc" id="L159">        setMap(Row.values()[row.ordinal() + ship.getSize()], Column.values()[col.ordinal() + 1],</span>
+<span class="fc" id="L160">                new GapCell(false));</span>
+      }
+
+    } else {
+<span class="fc bfc" id="L164" title="All 2 branches covered.">      for (int i = 0; i &lt; ship.getSize(); i++) {</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">        if (row.ordinal() != 0) {</span>
+<span class="fc" id="L166">          setMap(Row.values()[row.ordinal() - 1], Column.values()[col.ordinal() + i],</span>
+<span class="fc" id="L167">                  new GapCell(false));</span>
+        }
+<span class="pc bpc" id="L169" title="1 of 2 branches missed.">        if (row.ordinal() != 9) {</span>
+<span class="fc" id="L170">          setMap(Row.values()[row.ordinal() + 1], Column.values()[col.ordinal() + i],</span>
+<span class="fc" id="L171">                  new GapCell(false));</span>
+        }
+      }
+<span class="fc bfc" id="L174" title="All 4 branches covered.">      if (row.ordinal() != 0 &amp;&amp; col.ordinal() != 0) {</span>
+<span class="fc" id="L175">        setMap(Row.values()[row.ordinal() - 1], Column.values()[col.ordinal() - 1],</span>
+<span class="fc" id="L176">                new GapCell(false));</span>
+      }
+<span class="pc bpc" id="L178" title="1 of 4 branches missed.">      if (row.ordinal() != 9 &amp;&amp; col.ordinal() != 0) {</span>
+<span class="fc" id="L179">        setMap(Row.values()[row.ordinal() + 1], Column.values()[col.ordinal() - 1],</span>
+<span class="fc" id="L180">                new GapCell(false));</span>
+      }
+<span class="fc bfc" id="L182" title="All 2 branches covered.">      if (col.ordinal() != 0) {</span>
+<span class="fc" id="L183">        setMap(row, Column.values()[col.ordinal() - 1], new GapCell(false));</span>
+      }
+<span class="fc bfc" id="L185" title="All 2 branches covered.">      if (col.ordinal() + ship.getSize() - 1 != 9) {</span>
+<span class="fc" id="L186">        setMap(row, Column.values()[col.ordinal() + ship.getSize()], new GapCell(false));</span>
+      }
+<span class="fc bfc" id="L188" title="All 4 branches covered.">      if (col.ordinal() + ship.getSize() - 1 != 9 &amp;&amp; row.ordinal() != 0) {</span>
+<span class="fc" id="L189">        setMap(Row.values()[row.ordinal() - 1], Column.values()[col.ordinal() + ship.getSize()],</span>
+<span class="fc" id="L190">                new GapCell(false));</span>
+      }
+<span class="pc bpc" id="L192" title="1 of 4 branches missed.">      if (col.ordinal() + ship.getSize() - 1 != 9 &amp;&amp; row.ordinal() != 9) {</span>
+<span class="fc" id="L193">        setMap(Row.values()[row.ordinal() + 1], Column.values()[col.ordinal() + ship.getSize()],</span>
+<span class="fc" id="L194">                new GapCell(false));</span>
+      }
+    }
+
+<span class="fc" id="L198">  }</span>
+
+
+  /**
+   * Place a ship in given location and direction.
+   */
+  @Override
+  public void placeShip(Ship ship, Row row, Column col, Direction direction) {
+
+    //set ship cell one by one
+<span class="fc bfc" id="L208" title="All 2 branches covered.">    if (direction.equals(Direction.VERTICAL)) {</span>
+<span class="fc bfc" id="L209" title="All 2 branches covered.">      for (int i = 0; i &lt; ship.getSize(); i++) {</span>
+<span class="fc" id="L210">        SpecificShipCell cell = new SpecificShipCell(false, new NotSunk(), ship);</span>
+<span class="fc" id="L211">        this.setMap(Row.values()[row.ordinal() + i], col, cell);</span>
+
+      }
+    } else {
+<span class="fc bfc" id="L215" title="All 2 branches covered.">      for (int i = 0; i &lt; ship.getSize(); i++) {</span>
+<span class="fc" id="L216">        SpecificShipCell cell = new SpecificShipCell(false, new NotSunk(), ship);</span>
+<span class="fc" id="L217">        this.setMap(row, Column.values()[col.ordinal() + i], cell);</span>
+
+      }
+    }
+
+    //set the surrounding cells to gap cell.
+<span class="fc" id="L223">    setGapCell(ship, row, col, direction);</span>
+
+    // num of current ship type increase by 1
+<span class="fc bfc" id="L226" title="All 2 branches covered.">    if (ship.getClass().equals(Battleship.class)) {</span>
+<span class="fc" id="L227">      this.countBattleship++;</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">    } else if (ship.getClass().equals(Cruiser.class)) {</span>
+<span class="fc" id="L229">      this.countCruiser++;</span>
+<span class="fc bfc" id="L230" title="All 2 branches covered.">    } else if (ship.getClass().equals(Submarine.class)) {</span>
+<span class="fc" id="L231">      this.countSubmarine++;</span>
+    } else {
+<span class="fc" id="L233">      this.countDestroyer++;</span>
+    }
+
+<span class="fc" id="L236">  }</span>
+
+
+  /**
+   * Random generate a complete fleet map.
+   */
+  @Override
+  public void randomPlaceShip() {
+
+    Ship ship;
+    Row row;
+    Column col;
+    Direction dir;
+<span class="fc" id="L249">    Random rand = new Random();</span>
+
+<span class="fc" id="L251">    int count = 0;</span>
+<span class="fc" id="L252">    int shipNum = getBattleshipNum() + getCruiserNum() + getSubmarineNum() + getDestroyerNum();</span>
+
+<span class="fc bfc" id="L254" title="All 2 branches covered.">    while (count &lt; shipNum) {</span>
+<span class="fc bfc" id="L255" title="All 2 branches covered.">      if (countBattleship &lt; getBattleshipNum()) {</span>
+<span class="fc" id="L256">        ship = new Battleship(4, 0);</span>
+<span class="fc bfc" id="L257" title="All 2 branches covered.">      } else if (countCruiser &lt; getCruiserNum()) {</span>
+<span class="fc" id="L258">        ship = new Cruiser(3, 0);</span>
+<span class="fc bfc" id="L259" title="All 2 branches covered.">      } else if (countSubmarine &lt; getSubmarineNum()) {</span>
+<span class="fc" id="L260">        ship = new Submarine(2, 0);</span>
+      } else {
+<span class="fc" id="L262">        ship = new Destroyer(1, 0);</span>
+      }
+
+<span class="fc" id="L265">      row = Row.values()[rand.nextInt(10)];</span>
+<span class="fc" id="L266">      col = Column.values()[rand.nextInt(10)];</span>
+<span class="fc bfc" id="L267" title="All 2 branches covered.">      dir = rand.nextInt(2) == 0 ? Direction.VERTICAL : Direction.HORIZONTAL;</span>
+
+<span class="fc bfc" id="L269" title="All 2 branches covered.">      if (!canPlaceShip(ship, row, col, dir)) {</span>
+<span class="fc" id="L270">        continue;</span>
+      } else {
+<span class="fc" id="L272">        placeShip(ship, row, col, dir);</span>
+<span class="fc" id="L273">        count++;</span>
+      }
+    }
+<span class="fc" id="L276">    Printer.CONSOLE_PRINTER.printMessage(&quot;finishGenerateRandomMap&quot;);</span>
+
+<span class="fc" id="L278">  }</span>
+
+  /**
+   * Attack a cell on the map.
+   *
+   * @param row         the row.
+   * @param col         the col.
+   * @param sunkShipNum current sunk ship number.
+   * @return the updated sunk ship number after the attacks.
+   */
+  @Override
+  public Integer attack(Row row, Column col, Integer sunkShipNum) {
+<span class="fc" id="L290">    Cell attackCell = getMap(row, col).attack();</span>
+
+<span class="pc bpc" id="L292" title="1 of 2 branches missed.">    if (attackCell.attackResult().toString().equals(&quot;Sunk&quot;)) {</span>
+<span class="nc" id="L293">      sunkShipNum++;</span>
+    }
+<span class="fc" id="L295">    return sunkShipNum;</span>
+  }
+
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L301" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L302">      return true;</span>
+    }
+<span class="fc bfc" id="L304" title="All 4 branches covered.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L305">      return false;</span>
+    }
+<span class="fc" id="L307">    FleetMap fleetMap1 = (FleetMap) obj;</span>
+<span class="fc bfc" id="L308" title="All 2 branches covered.">    for (int i = 0; i &lt; ROW; i++) {</span>
+<span class="fc bfc" id="L309" title="All 2 branches covered.">      for (int j = 0; j &lt; COLUMN; j++) {</span>
+<span class="pc bpc" id="L310" title="1 of 2 branches missed.">        if (fleetMap1.mapcell[i][j].getClass() != mapcell[i][j].getClass()) {</span>
+<span class="nc" id="L311">          return false;</span>
+        }
+      }
+    }
+<span class="fc" id="L315">    return true;</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L320">    int hash = 0;</span>
+<span class="fc bfc" id="L321" title="All 2 branches covered.">    for (int i = 0; i &lt; ROW; i++) {</span>
+<span class="fc bfc" id="L322" title="All 2 branches covered.">      for (int j = 0; j &lt; COLUMN; j++) {</span>
+
+<span class="pc bpc" id="L324" title="1 of 2 branches missed.">        if (mapcell[i][j].getClass() == OpenSeaCell.class) {</span>
+<span class="fc" id="L325">          hash += i + 31 * j;</span>
+<span class="nc bnc" id="L326" title="All 2 branches missed.">        } else if (mapcell[i][j].getClass() == GapCell.class) {</span>
+<span class="nc" id="L327">          hash += (i + 31 * j) * 31;</span>
+<span class="nc bnc" id="L328" title="All 2 branches missed.">        } else if (mapcell[i][j].getClass() == SpecificShipCell.class) {</span>
+<span class="nc" id="L329">          hash += (i + 31 * j) * 31 * 31;</span>
+        } else {
+<span class="nc" id="L331">          hash += (i + 31 * j) * 31 * 31 * 31;</span>
+        }
+
+      }
+    }
+<span class="fc" id="L336">    return hash;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L341">    return &quot;FleetMap{&quot;</span>
+            + &quot;map=&quot;
+<span class="fc" id="L343">            + Arrays.toString(mapcell)</span>
+            + '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

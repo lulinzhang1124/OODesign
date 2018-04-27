@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ReadConsole.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.controller</a> &gt; <span class="el_source">ReadConsole.java</span></div><h1>ReadConsole.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.controller;
+
+
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Number;
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.Printer;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+
+
+/**
+ * Represents a read console to get the input data.
+ */
+public class ReadConsole {
+  private String input;
+<span class="fc" id="L18">  private BufferedReader reader = new BufferedReader(</span>
+          new InputStreamReader(System.in, StandardCharsets.UTF_8));
+
+  /**
+   * Default constructor.
+   */
+<span class="fc" id="L24">  public ReadConsole() {</span>
+    //default
+<span class="fc" id="L26">  }</span>
+
+  /**
+   * Constructor for unit test.
+   *
+   * @param testReader - reader for test.
+   */
+<span class="fc" id="L33">  public ReadConsole(BufferedReader testReader) {</span>
+<span class="fc" id="L34">    reader = testReader;</span>
+<span class="fc" id="L35">  }</span>
+
+  /**
+   * Get the input string through bufferReader.
+   *
+   * @param args - command-line arguments.
+   */
+  public void readFromConsole(String[] args) throws UserInteruptException {
+    try {
+
+<span class="fc" id="L45">      input = reader.readLine();</span>
+
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">      if (&quot;q&quot;.equals(input)) {</span>
+<span class="nc" id="L48">        Printer.CONSOLE_PRINTER.printMessage(&quot;exit&quot;);</span>
+<span class="nc" id="L49">        throw new UserInteruptException();</span>
+      }
+
+<span class="nc" id="L52">    } catch (IOException ioe) {</span>
+<span class="nc" id="L53">      ioe.printStackTrace();</span>
+<span class="fc" id="L54">    }</span>
+<span class="fc" id="L55">  }</span>
+
+<span class="nc" id="L57">  public static class UserInteruptException extends Exception {</span>
+
+  }
+
+  /**
+   * Printer the wrong input message.
+   */
+  public static void wrongInput() {
+<span class="fc" id="L65">    Printer.CONSOLE_PRINTER.printMessage(&quot;wrongInput&quot;);</span>
+<span class="fc" id="L66">  }</span>
+
+  /**
+   * Get the input string.
+   *
+   * @return the input string.
+   */
+  public String getInput() {
+<span class="fc" id="L74">    return input;</span>
+  }
+
+  /**
+   * Get the valid input location.
+   *
+   * @return the int[] represents the cell location.
+   */
+  public int[] inputLocation() throws UserInteruptException {
+
+<span class="fc" id="L84">    int[] location = new int[2];</span>
+
+<span class="fc" id="L86">    boolean factor = true;</span>
+
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">    while (factor == true) {</span>
+<span class="fc" id="L89">      readFromConsole(null);</span>
+
+<span class="fc" id="L91">      String input = getInput();</span>
+<span class="fc" id="L92">      char[] str = input.toCharArray();</span>
+
+<span class="pc bpc" id="L94" title="1 of 3 branches missed.">      switch (input.length()) {</span>
+        case 2:
+<span class="pc bpc" id="L96" title="4 of 8 branches missed.">          if (str[0] - 'A' &gt;= 0 &amp;&amp; str[0] &lt;= 'J' &amp;&amp; str[1] &gt;= '1' &amp;&amp; str[1] &lt;= '9') {</span>
+<span class="fc" id="L97">            location[0] = (int) str[0] - 'A';</span>
+<span class="fc" id="L98">            location[1] = (int) str[1] - '1';</span>
+<span class="fc" id="L99">            return location;</span>
+          } else {
+<span class="nc" id="L101">            ReadConsole.wrongInput();</span>
+          }
+<span class="nc" id="L103">          break;</span>
+
+        case 3:
+<span class="pc bpc" id="L106" title="4 of 8 branches missed.">          if (str[0] - 'A' &gt;= 0 &amp;&amp; str[0] &lt;= 'J' &amp;&amp; str[1] &gt;= '1' &amp;&amp; str[2] &lt;= '0') {</span>
+<span class="fc" id="L107">            location[0] = (int) str[0] - 'A';</span>
+<span class="fc" id="L108">            location[1] = Number.NINE.getValue(); //we get 10 but the index is 9</span>
+<span class="fc" id="L109">            return location;</span>
+          } else {
+<span class="nc" id="L111">            ReadConsole.wrongInput();</span>
+          }
+<span class="nc" id="L113">          break;</span>
+
+        default:
+<span class="nc" id="L116">          ReadConsole.wrongInput();</span>
+
+      }
+<span class="nc" id="L119">    }</span>
+<span class="nc" id="L120">    return location;</span>
+
+  }
+
+  /**
+   * Get the invalid integer for the given range.
+   *
+   * @param start the start of the range
+   * @param end   the end of the range
+   * @return the valid integer
+   */
+  public int inputNum(int start, int end) throws UserInteruptException {
+    while (true) {
+<span class="fc" id="L133">      readFromConsole(null);</span>
+<span class="pc bpc" id="L134" title="1 of 2 branches missed.">      if (getInput().length() == Number.ONE.getValue() &amp;&amp; getInput().charAt(Number.ZERO.getValue())</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">              &gt;= start + Number.FORTY_EIGHT.getValue()</span>
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">              &amp;&amp; getInput().charAt(Number.ZERO.getValue()) &lt;= end + Number.FORTY_EIGHT.getValue()) {</span>
+<span class="fc" id="L137">        return Integer.parseInt(getInput());</span>
+      } else {
+<span class="nc" id="L139">        ReadConsole.wrongInput();</span>
+      }
+    }
+  }
+
+  @Override
+  public boolean equals(Object other) {
+<span class="fc bfc" id="L146" title="All 2 branches covered.">    if (other == null) {</span>
+<span class="fc" id="L147">      return false;</span>
+    }
+
+<span class="fc bfc" id="L150" title="All 2 branches covered.">    if (this == other) {</span>
+<span class="fc" id="L151">      return true;</span>
+    }
+
+
+<span class="fc bfc" id="L155" title="All 2 branches covered.">    return this.getClass() == other.getClass();</span>
+  }
+
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L161">    return 51;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L166">    return &quot;ReadConsole{}&quot;;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

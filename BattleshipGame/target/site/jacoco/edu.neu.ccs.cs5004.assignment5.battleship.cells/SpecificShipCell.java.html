@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SpecificShipCell.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.cells</a> &gt; <span class="el_source">SpecificShipCell.java</span></div><h1>SpecificShipCell.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.cells;
+
+
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Ship;
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.Printer;
+
+
+/**
+ * Represents a specific ship cell.
+ */
+
+public class SpecificShipCell extends AbstractShipCell implements IspecificShipCell {
+  private Ship ship;
+
+  /**
+   * Creates a specific ship cell.
+   *
+   * @param isHit - if the cell has been hit.
+   * @param markSunk - cell has been sunk or not sunk.
+   * @param ship - the ship inside specific ship cell.
+   */
+  public SpecificShipCell(Boolean isHit, MarkSunk markSunk, Ship ship) {
+<span class="fc" id="L23">    super(isHit, markSunk);</span>
+<span class="fc" id="L24">    this.ship = ship;</span>
+<span class="fc" id="L25">  }</span>
+
+  /**
+   * Getter.
+   *
+   * @return the markSunk value.
+   */
+  @Override
+  public MarkSunk getMarkSunk() {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">    if (ship.isSunk()) {</span>
+<span class="fc" id="L35">      return new Sunk();</span>
+    }
+<span class="fc" id="L37">    return new NotSunk();</span>
+  }
+
+  /**
+   * Print the cell.
+   *
+   * @param printer - a printer which is the instance of the ConsolePrinter class.
+   */
+  @Override
+  public void prettyPrint(Printer printer) {
+<span class="fc" id="L47">    printer.toConsole(this);</span>
+<span class="fc" id="L48">  }</span>
+
+  /**
+   * Getter.
+   *
+   * @return the ship which placed on the cell.
+   */
+  public Ship getShip() {
+<span class="fc" id="L56">    return ship;</span>
+  }
+
+  /**
+   * Get the attack result for a cell.
+   *
+   * @return a attack result.
+   */
+  @Override
+  public AttackResult attackResult() {
+<span class="fc bfc" id="L66" title="All 2 branches covered.">    if (this.ship.isSunk()) {</span>
+<span class="fc" id="L67">      return new ResultSunk();</span>
+    } else {
+<span class="fc" id="L69">      return new Hit();</span>
+    }
+  }
+
+  /**
+   * Attacks the cell.
+   *
+   * @return the same cell but with the filed isHitShip marked as true.
+   */
+  @Override
+  public Cell attack() {
+<span class="fc" id="L80">    this.isHit = true;</span>
+<span class="fc" id="L81">    this.ship = ship.hitShip();</span>
+<span class="fc" id="L82">    return this;</span>
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L87" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L88">      return true;</span>
+    }
+<span class="fc bfc" id="L90" title="All 4 branches covered.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L91">      return false;</span>
+    }
+<span class="fc bfc" id="L93" title="All 2 branches covered.">    if (!super.equals(obj)) {</span>
+<span class="fc" id="L94">      return false;</span>
+    }
+
+<span class="fc" id="L97">    SpecificShipCell that = (SpecificShipCell) obj;</span>
+
+<span class="fc bfc" id="L99" title="All 4 branches covered.">    return ship != null ? ship.equals(that.ship) : that.ship == null;</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L104">    int result = super.hashCode();</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">    result = 31 * result + (ship != null ? ship.hashCode() : 0);</span>
+<span class="fc" id="L106">    return result;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L111">    return &quot;SpecificShipCell{&quot;</span>
+            + &quot;ship=&quot;
+            + ship
+            + &quot;, markSunk=&quot;
+            + markSunk
+            + &quot;, isHitShip=&quot;
+            + isHit
+            + '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

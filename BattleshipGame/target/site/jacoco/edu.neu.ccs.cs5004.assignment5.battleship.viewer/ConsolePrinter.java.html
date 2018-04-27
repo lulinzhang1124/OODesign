@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ConsolePrinter.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.viewer</a> &gt; <span class="el_source">ConsolePrinter.java</span></div><h1>ConsolePrinter.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.viewer;
+
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.Cell;
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.EnemyShipCell;
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.SpecificShipCell;
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.WaterCell;
+import edu.neu.ccs.cs5004.assignment5.battleship.controller.DebugGame;
+import edu.neu.ccs.cs5004.assignment5.battleship.controller.RealGame;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Column;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Row;
+import edu.neu.ccs.cs5004.assignment5.battleship.maps.Map;
+
+/**
+ * Represents a console printer.
+ */
+
+<span class="fc" id="L17">public class ConsolePrinter implements Printer {</span>
+
+  /**
+   * Send the given object data to the printer.
+   *
+   * @param cell the cell to be sent.
+   */
+  @Override
+  public void toConsole(Cell cell) {
+<span class="fc" id="L26">    cell.prettyPrint(new ConsolePrinter());</span>
+<span class="fc" id="L27">  }</span>
+
+
+  /**
+   * Print the waterCell.
+   *
+   * @param waterCell the waterCell to be printed.
+   */
+  @Override
+  public void toConsole(WaterCell waterCell) {
+
+<span class="fc bfc" id="L38" title="All 2 branches covered.">    if (waterCell.getIsHit() == true) {</span>
+<span class="fc" id="L39">      System.out.print(&quot; ~ &quot;);</span>
+    } else {
+<span class="fc" id="L41">      System.out.print(&quot;   &quot;);</span>
+    }
+<span class="fc" id="L43">  }</span>
+
+  /**
+   * Print the enemyShipCell.
+   *
+   * @param enemyShipCell the cell to be printed.
+   */
+  @Override
+  public void toConsole(EnemyShipCell enemyShipCell) {
+<span class="fc bfc" id="L52" title="All 2 branches covered.">    if (enemyShipCell.getSunkShip() == true) {</span>
+<span class="fc" id="L53">      System.out.print(&quot; / &quot;);</span>
+    } else {
+<span class="fc" id="L55">      System.out.print(&quot; X &quot;);</span>
+    }
+<span class="fc" id="L57">  }</span>
+
+  /**
+   * Print the the specificShipCell.
+   *
+   * @param specificShipCell the cell to be printed.
+   */
+  @Override
+  public void toConsole(SpecificShipCell specificShipCell) {
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">    if (specificShipCell.getShip().isSunk()) {</span>
+<span class="nc" id="L67">      System.out.print(&quot; / &quot;);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">    } else if (specificShipCell.getIsHit()) {</span>
+<span class="fc" id="L69">      System.out.print(&quot; X &quot;);</span>
+    } else {
+<span class="fc" id="L71">      System.out.print(&quot; O &quot;);</span>
+    }
+<span class="fc" id="L73">  }</span>
+
+  /**
+   * Print the debug game maps.
+   *
+   * @param debugGame the debugGame to be printed.
+   */
+  @Override
+  public void toConsole(DebugGame debugGame) {
+<span class="fc" id="L82">    printMessage(&quot;playerMap&quot;);</span>
+<span class="fc" id="L83">    debugGame.getHuman().getIfleetMap().prettyPrint(this);</span>
+<span class="fc" id="L84">    printMessage(&quot;playerBattleMap&quot;);</span>
+<span class="fc" id="L85">    debugGame.getHuman().getIbattleMap().prettyPrint(this);</span>
+
+<span class="fc" id="L87">    printMessage(&quot;computerMap&quot;);</span>
+<span class="fc" id="L88">    debugGame.getComputer().getIfleetMap().prettyPrint(this);</span>
+    //print computer's battle map here
+<span class="fc" id="L90">    printMessage(&quot;computerBattleMap&quot;);</span>
+<span class="fc" id="L91">    debugGame.getComputer().getIbattleMap().prettyPrint(this);</span>
+<span class="fc" id="L92">  }</span>
+
+  /**
+   * Print the real game maps.
+   *
+   * @param realGame the realgame to be printed.
+   */
+  @Override
+  public void toConsole(RealGame realGame) {
+<span class="fc" id="L101">    printMessage(&quot;playerMap&quot;);</span>
+<span class="fc" id="L102">    realGame.getHuman().getIfleetMap().prettyPrint(this);</span>
+<span class="fc" id="L103">    printMessage(&quot;playerBattleMap&quot;);</span>
+<span class="fc" id="L104">    realGame.getHuman().getIbattleMap().prettyPrint(this);</span>
+<span class="fc" id="L105">  }</span>
+
+  /**
+   * Print the map.
+   *
+   * @param map the map to be printed.
+   */
+  @Override
+  public void toConsole(Map map) {
+
+<span class="fc" id="L115">    System.out.println();</span>
+<span class="fc" id="L116">    System.out.println(&quot;    A   B   C   D   E   F   G   H   I   J&quot;); //alphabetic notation</span>
+<span class="fc" id="L117">    System.out.println(&quot; ###########################################&quot;);</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">    for (int i = 0; i &lt; Map.ROW; i++) { //rows</span>
+<span class="fc" id="L119">      System.out.print(&quot; #|&quot;);</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">      for (int j = 0; j &lt; Map.COLUMN; j++) { //columns</span>
+
+<span class="fc" id="L122">        this.toConsole(map.getMap(Row.values()[i], Column.values()[j]));</span>
+<span class="fc" id="L123">        System.out.print(&quot;|&quot;);</span>
+      }
+<span class="fc" id="L125">      System.out.println(&quot;# &quot; + (i + 1)); //next row</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">      if (i != Map.ROW - 1) {</span>
+<span class="fc" id="L127">        System.out.println(&quot; #|---------------------------------------|#&quot;);//linebreak between rows</span>
+      } else {
+<span class="fc" id="L129">        System.out.println(&quot; ###########################################&quot;);</span>
+      }
+    }
+
+<span class="fc" id="L133">    System.out.println(&quot;    A   B   C   D   E   F   G   H   I   J&quot;);//alphabetic notation</span>
+<span class="fc" id="L134">    System.out.println();</span>
+
+<span class="fc" id="L136">  }</span>
+
+  /**
+   * Print messages for the game.
+   *
+   * @param string the corresponding string needs to print.
+   */
+  @Override
+  public void printMessage(String string) {
+<span class="pc bpc" id="L145" title="36 of 146 branches missed.">    switch (string) {</span>
+      case &quot;welcome&quot;:
+<span class="fc" id="L147">        System.out.println(&quot;-----------------------------------------&quot;);</span>
+<span class="fc" id="L148">        System.out.println(&quot;Welcome to Battleship Game.&quot;);</span>
+<span class="fc" id="L149">        System.out.println(&quot;Enter q anytime if you want to exit the Game.&quot;);</span>
+<span class="fc" id="L150">        System.out.println(&quot;-----------------------------------------&quot;);</span>
+<span class="fc" id="L151">        break;</span>
+      case &quot;debugWelcome&quot;:
+<span class="fc" id="L153">        System.out.println(&quot;-------------------------------&quot;);</span>
+<span class="fc" id="L154">        System.out.println(&quot;Debug Mode for Battleship Game.&quot;);</span>
+<span class="fc" id="L155">        break;</span>
+      case &quot;mapSetUp&quot;:
+<span class="fc" id="L157">        System.out.println(&quot;Finish fleet maps set up. Let's start!&quot;);</span>
+<span class="fc" id="L158">        System.out.println(&quot;----------------------------------------&quot;);</span>
+<span class="fc" id="L159">        break;</span>
+      case &quot;chooseGameMode&quot;:
+<span class="fc" id="L161">        System.out.println(&quot;Which mode do you want to play?&quot;);</span>
+<span class="fc" id="L162">        System.out.println(&quot;1. Game Mode\n2. Debug Mode&quot;);</span>
+<span class="fc" id="L163">        break;</span>
+      case &quot;humanAttackStrategy&quot;:
+<span class="fc" id="L165">        System.out.println(&quot;Please choose attack strategy for human player.&quot;);</span>
+<span class="fc" id="L166">        System.out.println(&quot;1. User Attack\n2. Random Attack\n3. Smart strategy&quot;);</span>
+<span class="fc" id="L167">        break;</span>
+      case &quot;computerAttackStrategy&quot;:
+<span class="fc" id="L169">        System.out.println(&quot;Please choose attack strategy for computer player.&quot;);</span>
+<span class="fc" id="L170">        System.out.println(&quot;1. Random Attack\n2. Smart strategy&quot;);</span>
+<span class="fc" id="L171">        break;</span>
+      case &quot;winnerHuman&quot;:
+<span class="fc" id="L173">        System.out.println(&quot;Game over, the winner is the Player.&quot;);</span>
+<span class="fc" id="L174">        break;</span>
+      case &quot;winnerComputer&quot;:
+<span class="fc" id="L176">        System.out.println(&quot;Game over, the winner is the Computer.&quot;);</span>
+<span class="fc" id="L177">        break;</span>
+      case &quot;playerMap&quot;:
+<span class="fc" id="L179">        System.out.println(&quot;---------------Player's Map------------------&quot;);</span>
+<span class="fc" id="L180">        break;</span>
+      case &quot;playerBattleMap&quot;:
+<span class="fc" id="L182">        System.out.println(&quot;------------Player's Battle Map---------------&quot;);</span>
+<span class="fc" id="L183">        break;</span>
+      case &quot;computerMap&quot;:
+<span class="fc" id="L185">        System.out.println(&quot;---------------Computer's Map-----------------&quot;);</span>
+<span class="fc" id="L186">        break;</span>
+      case &quot;computerBattleMap&quot;:
+<span class="fc" id="L188">        System.out.println(&quot;------------Computer's Battle Map-------------&quot;);</span>
+<span class="fc" id="L189">        break;</span>
+      case &quot;exit&quot;:
+<span class="fc" id="L191">        System.out.println(&quot;Exit!&quot;);</span>
+<span class="fc" id="L192">        return;</span>
+      case &quot;wrongInput&quot;:
+<span class="fc" id="L194">        System.out.println(Printer.ANSI_RED + &quot;Incorrect input! Please enter again!&quot;</span>
+                + Printer.ANSI_RESET);
+<span class="fc" id="L196">        return;</span>
+      case &quot;generateMapForComputer&quot;:
+<span class="fc" id="L198">        System.out.println(&quot;Generate random fleet map for Computer.&quot;);</span>
+<span class="fc" id="L199">        return;</span>
+      case &quot;computerTurn&quot;:
+<span class="fc" id="L201">        System.out.println(&quot;Computer's turn:&quot;);</span>
+<span class="fc" id="L202">        return;</span>
+
+      case &quot;playerTurn&quot;:
+<span class="fc" id="L205">        System.out.println(&quot;Player's turn:&quot;);</span>
+<span class="fc" id="L206">        return;</span>
+
+      case &quot;inputBattleshipNum&quot;:
+<span class="fc" id="L209">        System.out.println(&quot;Please input the number of battleship you want in your fleet map. &quot;);</span>
+<span class="fc" id="L210">        return;</span>
+      case &quot;inputCruiserNum&quot;:
+<span class="fc" id="L212">        System.out.println(&quot;Please input the number of cruiser you want in your fleet map. &quot;);</span>
+<span class="fc" id="L213">        return;</span>
+      case &quot;inputSubmarineNum&quot;:
+<span class="fc" id="L215">        System.out.println(&quot;Please input the number of submarine you want in your fleet map. &quot;);</span>
+<span class="fc" id="L216">        return;</span>
+      case &quot;inputDestroyerNum&quot;:
+<span class="fc" id="L218">        System.out.println(&quot;Please input the number of destroyer you want in your fleet map. &quot;);</span>
+<span class="fc" id="L219">        return;</span>
+
+      case &quot;playerChooseModeToPlaceShip&quot;:
+<span class="fc" id="L222">        System.out.println(&quot;==== Setting up fleet map for Player  ====&quot;);</span>
+<span class="fc" id="L223">        System.out.println(&quot;Please choose the ways to place the ships&quot;);</span>
+<span class="fc" id="L224">        System.out.print(&quot;1. RANDOM placement\n2. USER placement\n&quot;);</span>
+<span class="fc" id="L225">        return;</span>
+
+      case &quot;generateHumanRandomMap&quot;:
+<span class="fc" id="L228">        System.out.println(&quot;Generate random fleet map for Player now.&quot;);</span>
+<span class="fc" id="L229">        return;</span>
+
+      case &quot;finishGenerateRandomMap&quot;:
+<span class="fc" id="L232">        System.out.print(&quot;Finish generate random fleet map.\n\n&quot;);</span>
+<span class="fc" id="L233">        return;</span>
+
+      case &quot;inputShipLocation&quot;:
+<span class="fc" id="L236">        System.out.println(&quot;Please input location you want to placed ship: \n&quot;);</span>
+<span class="fc" id="L237">        return;</span>
+
+      case &quot;inputDirections&quot;:
+<span class="fc" id="L240">        System.out.println(&quot;Please input direction you want to placed ship: &quot;);</span>
+<span class="fc" id="L241">        System.out.print(&quot;1. Horizontal\n2. Vertical\n&quot;);</span>
+<span class="fc" id="L242">        return;</span>
+
+      case &quot;wrongCoordination&quot;:
+<span class="fc" id="L245">        System.out.println(Printer.ANSI_RED + &quot;Can't placed ship -- Wrong coordinate. Please &quot;</span>
+                + &quot;input again.&quot;
+                + Printer.ANSI_RESET);
+<span class="fc" id="L248">        return;</span>
+
+      case &quot;chooseShipType&quot;:
+<span class="fc" id="L251">        System.out.println(&quot;Please input ship type you want to placed: &quot;);</span>
+<span class="fc" id="L252">        System.out.print(&quot;1. Battleship\n2. Cruiser\n3. Submarine\n4. Destroyer\n&quot;);</span>
+<span class="fc" id="L253">        return;</span>
+
+      case &quot;enoughBattleship&quot;:
+<span class="fc" id="L256">        System.out.println(</span>
+                Printer.ANSI_RED + &quot;Map already has enough Battleships. Please input again.&quot;
+                        + Printer.ANSI_RESET);
+<span class="fc" id="L259">        return;</span>
+
+      case &quot;enoughCruiser&quot;:
+<span class="fc" id="L262">        System.out.println(</span>
+                Printer.ANSI_RED + &quot;Map already has enough Cruisers. Please input again.&quot;
+                        + Printer.ANSI_RESET);
+<span class="fc" id="L265">        return;</span>
+
+      case &quot;enoughSubmarine&quot;:
+<span class="fc" id="L268">        System.out.println(</span>
+                Printer.ANSI_RED + &quot;Map already has enough Submarines. Please input again.&quot;
+                        + Printer.ANSI_RESET);
+<span class="fc" id="L271">        return;</span>
+
+      case &quot;enoughDestroyer&quot;:
+<span class="fc" id="L274">        System.out.println(</span>
+                Printer.ANSI_RED + &quot;Map already has enough Destroyers. Please input again.&quot;
+                        + Printer.ANSI_RESET);
+<span class="fc" id="L277">        return;</span>
+
+      case &quot;finishFleetMap&quot;:
+<span class="fc" id="L280">        System.out.println(&quot;Finish set up fleet map.&quot;);</span>
+<span class="fc" id="L281">        return;</span>
+
+      case &quot;gameMode&quot;:
+<span class="fc" id="L284">        System.out.println(&quot;-------------------------------&quot;);</span>
+<span class="fc" id="L285">        System.out.println(&quot;Game Mode for Battleship Game.&quot;);</span>
+<span class="fc" id="L286">        return;</span>
+
+      case &quot;inputAttackLocation&quot;:
+<span class="fc" id="L289">        System.out.println(&quot;Please enter the location you want to attack:&quot;);</span>
+<span class="fc" id="L290">        return;</span>
+
+      case &quot;duplicateAttack&quot;:
+<span class="fc" id="L293">        System.out.println(&quot;You attacked this cell before, please choose a different one&quot;);</span>
+<span class="fc" id="L294">        return;</span>
+
+      default:
+<span class="fc" id="L297">        return;</span>
+    }
+
+<span class="fc" id="L300">  }</span>
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L304" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L305">      return true;</span>
+    }
+<span class="fc bfc" id="L307" title="All 4 branches covered.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L308">      return false;</span>
+    }
+<span class="fc" id="L310">    return true;</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L315">    return 31;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L320">    return &quot;ConsolePrinter{}&quot;;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AbstractCell.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.cells</a> &gt; <span class="el_source">AbstractCell.java</span></div><h1>AbstractCell.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.cells;
+
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Ship;
+
+/**
+ * Represents an abstract cell.
+ */
+
+public abstract class AbstractCell implements Cell {
+
+  protected Boolean isHit;
+
+  /**
+   * Creates a abstract cell.
+   *
+   * @param isHit - true if the cell is hit, false otherwise.
+   */
+<span class="fc" id="L18">  public AbstractCell(Boolean isHit) {</span>
+<span class="fc" id="L19">    this.isHit = isHit;</span>
+<span class="fc" id="L20">  }</span>
+
+  /**
+   * Updates the cells which belong to the ship using observer pattern.
+   *
+   * @param observable - a ship serves as the observable in observer pattern.
+   */
+  @Override
+  public void update(Ship observable) {
+<span class="fc" id="L29">    return;</span>
+  }
+
+  /**
+   * Getter for property 'isHitShip'.
+   *
+   * @return true if the cell is hit, false otherwise
+   */
+  public Boolean getIsHit() {
+<span class="fc" id="L38">    return isHit;</span>
+  }
+
+
+  /**
+   * Attacks the cell.
+   *
+   * @return the same cell but with the filed isHitShip marked as true.
+   */
+  @Override
+  public Cell attack() {
+<span class="fc" id="L49">    this.isHit = true;</span>
+<span class="fc" id="L50">    return this;</span>
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">    if (this == obj) {</span>
+<span class="nc" id="L56">      return true;</span>
+    }
+<span class="pc bpc" id="L58" title="1 of 4 branches missed.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L59">      return false;</span>
+    }
+
+<span class="fc" id="L62">    AbstractCell that = (AbstractCell) obj;</span>
+
+<span class="fc bfc" id="L64" title="All 4 branches covered.">    return isHit != null ? isHit.equals(that.isHit) : that.isHit == null;</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">    return isHit != null ? isHit.hashCode() : 0;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

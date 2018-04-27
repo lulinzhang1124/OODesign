@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>EnemyShipCell.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.cells</a> &gt; <span class="el_source">EnemyShipCell.java</span></div><h1>EnemyShipCell.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.cells;
+
+import edu.neu.ccs.cs5004.assignment5.battleship.ships.Ship;
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.Printer;
+
+/**
+ * Represents an abstract ship cell.
+ */
+public class EnemyShipCell extends AbstractShipCell implements IenemyShipCell {
+  private Boolean sunkShip;//an attribute that indicates if it belongs to a sunk ship or not.
+
+  /**
+   * Creates a enemy ship cell.
+   *
+   * @param isHit - indicate if the cell has been hit.
+   * @param markSunk - indicate the cell is sunk or not sunk.
+   * @param sunkShip - indicate if the cell belongs to a sunk ship.
+   */
+  public EnemyShipCell(Boolean isHit, MarkSunk markSunk, Boolean sunkShip) {
+<span class="fc" id="L20">    super(isHit, markSunk);</span>
+<span class="fc" id="L21">    this.sunkShip = sunkShip;</span>
+<span class="fc" id="L22">  }</span>
+
+
+  /**
+   * Getter.
+   *
+   * @return true if the cell is belong to a sunk ship, false otherwise.
+   */
+  public Boolean getSunkShip() {
+<span class="fc" id="L31">    return sunkShip;</span>
+  }
+
+
+  /**
+   * Updates the cells which belong to the ship using observer pattern.
+   *
+   * @param observable - a ship serves as the observable in observer pattern.
+   */
+  @Override
+  public void update(Ship observable) {
+<span class="fc" id="L42">    this.sunkShip = observable.isSunk();</span>
+<span class="fc" id="L43">  }</span>
+
+  /**
+   * Print the cell.
+   *
+   * @param printer - a printer which is the instance of the ConsolePrinter class.
+   */
+  @Override
+  public void prettyPrint(Printer printer) {
+<span class="fc" id="L52">    printer.toConsole(this);</span>
+<span class="fc" id="L53">  }</span>
+
+  /**
+   * Get the attack result for a cell.
+   *
+   * @return a attack result
+   */
+  @Override
+  public AttackResult attackResult() {
+<span class="fc" id="L62">    return new Miss();</span>
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L67" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L68">      return true;</span>
+    }
+<span class="fc bfc" id="L70" title="All 4 branches covered.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L71">      return false;</span>
+    }
+<span class="fc bfc" id="L73" title="All 2 branches covered.">    if (!super.equals(obj)) {</span>
+<span class="fc" id="L74">      return false;</span>
+    }
+<span class="fc" id="L76">    EnemyShipCell that = (EnemyShipCell) obj;</span>
+<span class="pc bpc" id="L77" title="1 of 4 branches missed.">    return sunkShip != null ? sunkShip.equals(that.sunkShip) : that.sunkShip == null;</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L82">    int result = super.hashCode();</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">    result = 31 * result + (sunkShip != null ? sunkShip.hashCode() : 0);</span>
+<span class="fc" id="L84">    return result;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L89">    return &quot;EnemyShipCell{&quot; + &quot;sunkShip=&quot; + sunkShip</span>
+        + &quot;, markSunk=&quot; + markSunk + &quot;, isHitShip=&quot; + isHit + '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

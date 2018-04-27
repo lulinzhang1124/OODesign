@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AbstractMap.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.maps</a> &gt; <span class="el_source">AbstractMap.java</span></div><h1>AbstractMap.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.maps;
+
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.Cell;
+import edu.neu.ccs.cs5004.assignment5.battleship.cells.OpenSeaCell;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Column;
+import edu.neu.ccs.cs5004.assignment5.battleship.enums.Row;
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.Printer;
+
+import java.util.Arrays;
+
+/**
+ * Represents an abstract map.
+ */
+public abstract class AbstractMap implements Map {
+
+  protected Cell[][] mapcell;
+  protected int battleshipNum;
+  protected int cruiserNum;
+  protected int submarineNum;
+  protected int destroyerNum;
+  protected int countBattleship;
+  protected int countCruiser;
+  protected int countSubmarine;
+  protected int countDestroyer;
+
+  /**
+   * Constructor of abstract map.
+   */
+<span class="fc" id="L29">  AbstractMap() {</span>
+<span class="fc" id="L30">    this.mapcell = new Cell[ROW][COLUMN];</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">    for (int i = 0; i &lt; ROW; i++) {</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">      for (int j = 0; j &lt; COLUMN; j++) {</span>
+<span class="fc" id="L33">        mapcell[i][j] = new OpenSeaCell(false);</span>
+      }
+    }
+<span class="fc" id="L36">    this.battleshipNum = Map.BATTLESHIP_NUM;</span>
+<span class="fc" id="L37">    this.cruiserNum = Map.CRUISER_NUM;</span>
+<span class="fc" id="L38">    this.submarineNum = Map.SUBMARINE_NUM;</span>
+<span class="fc" id="L39">    this.destroyerNum = Map.DESTROYER_NUM;</span>
+<span class="fc" id="L40">    this.countBattleship = 0;</span>
+<span class="fc" id="L41">    this.countCruiser = 0;</span>
+<span class="fc" id="L42">    this.countSubmarine = 0;</span>
+<span class="fc" id="L43">    this.countDestroyer = 0;</span>
+<span class="fc" id="L44">  }</span>
+
+  /**
+   * Constructor of abstract map.
+   *
+   * @param battleshipNum the battleship number
+   * @param cruiserNum    the cruiser number
+   * @param submarineNum  the submarine number
+   * @param destroyerNum  the destroyer number
+   */
+<span class="fc" id="L54">  AbstractMap(int battleshipNum, int cruiserNum, int submarineNum, int destroyerNum) {</span>
+<span class="fc" id="L55">    this.mapcell = new Cell[ROW][COLUMN];</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">    for (int i = 0; i &lt; ROW; i++) {</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">      for (int j = 0; j &lt; COLUMN; j++) {</span>
+<span class="fc" id="L58">        mapcell[i][j] = new OpenSeaCell(false);</span>
+      }
+    }
+<span class="fc" id="L61">    this.battleshipNum = battleshipNum;</span>
+<span class="fc" id="L62">    this.cruiserNum = cruiserNum;</span>
+<span class="fc" id="L63">    this.submarineNum = submarineNum;</span>
+<span class="fc" id="L64">    this.destroyerNum = destroyerNum;</span>
+<span class="fc" id="L65">    this.countBattleship = 0;</span>
+<span class="fc" id="L66">    this.countCruiser = 0;</span>
+<span class="fc" id="L67">    this.countSubmarine = 0;</span>
+<span class="fc" id="L68">    this.countDestroyer = 0;</span>
+<span class="fc" id="L69">  }</span>
+
+  /**
+   * Getter.
+   *
+   * @return the value for 'BattleshipNum'.
+   */
+  @Override
+  public int getBattleshipNum() {
+<span class="fc" id="L78">    return battleshipNum;</span>
+  }
+
+  /**
+   * Get the cruiser number on the ship.
+   *
+   * @return the cruiser number.
+   */
+  @Override
+  public int getCruiserNum() {
+<span class="fc" id="L88">    return cruiserNum;</span>
+  }
+
+  /**
+   * Get the submarine number on the ship.
+   *
+   * @return the submarine number.
+   */
+  @Override
+  public int getSubmarineNum() {
+<span class="fc" id="L98">    return submarineNum;</span>
+  }
+
+  /**
+   * Get the destroyer number on the ship.
+   *
+   * @return the destroyer number.
+   */
+  @Override
+  public int getDestroyerNum() {
+<span class="fc" id="L108">    return destroyerNum;</span>
+  }
+
+  @Override
+  public void prettyPrint(Printer printer) {
+<span class="fc" id="L113">    printer.toConsole(this);</span>
+<span class="fc" id="L114">  }</span>
+
+  @Override
+  public Cell getMap(Row row, Column col) {
+<span class="fc" id="L118">    return mapcell[row.ordinal()][col.ordinal()];</span>
+  }
+
+  @Override
+  public void setMap(Row row, Column col, Cell cell) {
+<span class="fc" id="L123">    mapcell[row.ordinal()][col.ordinal()] = cell;</span>
+<span class="fc" id="L124">  }</span>
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">    if (this == obj) {</span>
+<span class="nc" id="L129">      return true;</span>
+    }
+<span class="pc bpc" id="L131" title="1 of 4 branches missed.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L132">      return false;</span>
+    }
+
+<span class="fc" id="L135">    AbstractMap that = (AbstractMap) obj;</span>
+
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">    if (getBattleshipNum() != that.getBattleshipNum()) {</span>
+<span class="nc" id="L138">      return false;</span>
+    }
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">    if (getCruiserNum() != that.getCruiserNum()) {</span>
+<span class="nc" id="L141">      return false;</span>
+    }
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">    if (getSubmarineNum() != that.getSubmarineNum()) {</span>
+<span class="nc" id="L144">      return false;</span>
+    }
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">    if (getDestroyerNum() != that.getDestroyerNum()) {</span>
+<span class="nc" id="L147">      return false;</span>
+    }
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">    if (countBattleship != that.countBattleship) {</span>
+<span class="nc" id="L150">      return false;</span>
+    }
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">    if (countCruiser != that.countCruiser) {</span>
+<span class="nc" id="L153">      return false;</span>
+    }
+<span class="pc bpc" id="L155" title="1 of 2 branches missed.">    if (countSubmarine != that.countSubmarine) {</span>
+<span class="nc" id="L156">      return false;</span>
+    }
+<span class="pc bpc" id="L158" title="1 of 2 branches missed.">    if (countDestroyer != that.countDestroyer) {</span>
+<span class="nc" id="L159">      return false;</span>
+    }
+<span class="fc" id="L161">    return Arrays.deepEquals(mapcell, that.mapcell);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L166">    int result = Arrays.deepHashCode(mapcell);</span>
+<span class="nc" id="L167">    result = 31 * result + getBattleshipNum();</span>
+<span class="nc" id="L168">    result = 31 * result + getCruiserNum();</span>
+<span class="nc" id="L169">    result = 31 * result + getSubmarineNum();</span>
+<span class="nc" id="L170">    result = 31 * result + getDestroyerNum();</span>
+<span class="nc" id="L171">    result = 31 * result + countBattleship;</span>
+<span class="nc" id="L172">    result = 31 * result + countCruiser;</span>
+<span class="nc" id="L173">    result = 31 * result + countSubmarine;</span>
+<span class="nc" id="L174">    result = 31 * result + countDestroyer;</span>
+<span class="nc" id="L175">    return result;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

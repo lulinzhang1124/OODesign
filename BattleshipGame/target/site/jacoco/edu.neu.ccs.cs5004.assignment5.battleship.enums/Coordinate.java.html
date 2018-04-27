@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Coordinate.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.enums</a> &gt; <span class="el_source">Coordinate.java</span></div><h1>Coordinate.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.enums;
+
+/**
+ * Represents a coordinate.
+ */
+public class Coordinate {
+  private Column column;
+  private Row row;
+
+  /**
+   * Constructor for coordinate.
+   *
+   * @param column - the column value.
+   * @param row    - the row value.
+   */
+<span class="fc" id="L16">  public Coordinate(Column column, Row row) {</span>
+<span class="fc" id="L17">    this.column = column;</span>
+<span class="fc" id="L18">    this.row = row;</span>
+<span class="fc" id="L19">  }</span>
+
+  /**
+   * Getter for property 'Column'.
+   *
+   * @return value for property 'Column'.
+   */
+  public Column getColumn() {
+<span class="fc" id="L27">    return column;</span>
+  }
+
+  /**
+   * Getter for property 'Row'.
+   *
+   * @return value for property 'Row'.
+   */
+  public Row getRow() {
+<span class="fc" id="L36">    return row;</span>
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+<span class="fc bfc" id="L41" title="All 2 branches covered.">    if (this == obj) {</span>
+<span class="fc" id="L42">      return true;</span>
+    }
+<span class="fc bfc" id="L44" title="All 4 branches covered.">    if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="fc" id="L45">      return false;</span>
+    }
+
+<span class="fc" id="L48">    Coordinate that = (Coordinate) obj;</span>
+
+<span class="fc bfc" id="L50" title="All 2 branches covered.">    if (getColumn() != that.getColumn()) {</span>
+<span class="fc" id="L51">      return false;</span>
+    }
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">    return getRow() == that.getRow();</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">    int result = getColumn() != null ? getColumn().hashCode() : 0;</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">    result = 31 * result + (getRow() != null ? getRow().hashCode() : 0);</span>
+<span class="fc" id="L60">    return result;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L65">    return &quot;Coordinate [column=&quot;</span>
+            + column
+            + &quot;, row=&quot;
+            + row
+            + &quot;]&quot;;
+  }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

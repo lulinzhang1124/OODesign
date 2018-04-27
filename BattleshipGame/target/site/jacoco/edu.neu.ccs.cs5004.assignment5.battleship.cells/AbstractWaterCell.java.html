@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AbstractWaterCell.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment for class CS5004</a> &gt; <a href="index.source.html" class="el_package">edu.neu.ccs.cs5004.assignment5.battleship.cells</a> &gt; <span class="el_source">AbstractWaterCell.java</span></div><h1>AbstractWaterCell.java</h1><pre class="source lang-java linenums">package edu.neu.ccs.cs5004.assignment5.battleship.cells;
+
+
+import edu.neu.ccs.cs5004.assignment5.battleship.viewer.Printer;
+
+/**
+ * Represent an abstract water cell.
+ */
+public abstract class AbstractWaterCell extends AbstractCell implements WaterCell {
+
+  /**
+   * Creates a abstract water cell.
+   *
+   * @param isHit - if the cell has been hit.
+   */
+  public AbstractWaterCell(Boolean isHit) {
+<span class="fc" id="L17">    super(isHit);</span>
+<span class="fc" id="L18">  }</span>
+
+
+  /**
+   * Gets attack result.
+   *
+   * @return a instance of Miss since there is no ship in the cell.
+   */
+  @Override
+  public AttackResult attackResult() {
+<span class="fc" id="L28">    return new Miss();</span>
+  }
+
+  /**
+   * Print the cell using method defined in Printer interface.
+   *
+   * @param printer - a instance of Printer.
+   */
+  @Override
+  public void prettyPrint(Printer printer) {
+<span class="fc" id="L38">    printer.toConsole(this);</span>
+<span class="fc" id="L39">  }</span>
+
+  @Override
+  public boolean equals(Object other) {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">    if (other == null) {</span>
+<span class="fc" id="L44">      return false;</span>
+    }
+
+<span class="fc bfc" id="L47" title="All 2 branches covered.">    if (this == other) {</span>
+<span class="fc" id="L48">      return true;</span>
+    }
+<span class="fc bfc" id="L50" title="All 2 branches covered.">    if (!super.equals(other)) {</span>
+<span class="fc" id="L51">      return false;</span>
+    }
+
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">    return this.getClass() == other.getClass();</span>
+  }
+
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L60">    return 37;</span>
+  }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
